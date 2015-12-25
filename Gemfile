@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 
+#Heroku
 ruby "2.2.3"
-#heroku
+gem 'puma' #WebServer
 gem 'rails_12factor', group: :production
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
