@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151225201052) do
+ActiveRecord::Schema.define(version: 20151226023837) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,18 +22,19 @@ ActiveRecord::Schema.define(version: 20151225201052) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "comentarios", force: :cascade do |t|
+  create_table "comentaries", force: :cascade do |t|
     t.text     "contenido"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "peliculas", force: :cascade do |t|
+  create_table "movies", force: :cascade do |t|
     t.string   "titulo"
     t.text     "descripcion"
-    t.integer  "n_visualizaciones"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.integer  "visualizaciones"
+    t.string   "image"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
 end
