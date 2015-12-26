@@ -27,6 +27,8 @@
     <%= f.label :image %><br>
     <%= f.text_field :image %>
   </div>
+    <%= f.label :image %><br>
+    <%= f.collection_select(:category, :movie_id, Category.all, :id, :category) %>
   <div class="actions">
     <%= f.submit %>
   </div>
