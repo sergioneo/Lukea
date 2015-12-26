@@ -1,3 +1,4 @@
 class Category < ActiveRecord::Base
-	has_and_belongs_to_many :movies
+	has_many :movies, :through => :category_movies 
+	has_many :category_movies
 end

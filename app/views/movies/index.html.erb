@@ -9,6 +9,7 @@
       <th>Descripcion</th>
       <th>Visualizaciones</th>
       <th>Image</th>
+      <th>Categories</th>      
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,6 +21,7 @@
         <td><%= movie.descripcion %></td>
         <td><%= movie.visualizaciones %></td>
         <td><%= movie.image %></td>
+        <td><%= movie.categories %></td>
         <td><%= link_to 'Show', movie %></td>
         <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
         <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>

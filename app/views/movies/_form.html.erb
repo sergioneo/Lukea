@@ -27,8 +27,10 @@
     <%= f.label :image %><br>
     <%= f.text_field :image %>
   </div>
-    <%= f.label :image %><br>
-    <%= f.collection_select(:category, :movie_id, Category.all, :id, :category) %>
+    <div class="field">
+    <%= f.label :category %><br>
+    <%= f.collection_select :category_ids, Category.order("category"), :id, :category, {:prompt => "Seleccione Categorias"}, {:multiple => true} %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
