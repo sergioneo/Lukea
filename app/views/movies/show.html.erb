@@ -21,8 +21,13 @@
 </p>
 
 <p>
-  <strong>Image:</strong>
+  <strong>Imagen:</strong>
   <%= @movie.image %>
+</p>
+
+<p>
+  <strong>Categorias:</strong>
+  <%= @movie.category_ids %>
 </p>
 
 <%= link_to 'Edit', edit_movie_path(@movie) %> |
