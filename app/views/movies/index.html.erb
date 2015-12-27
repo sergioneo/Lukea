@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>Titulo</th>
+      <th>URL</th>
       <th>Descripcion</th>
       <th>Visualizaciones</th>
       <th>Image</th>
@@ -18,6 +19,7 @@
     <% @movies.each do |movie| %>
       <tr>
         <td><%= movie.titulo %></td>
+        <td><%= movie.pelicula_url %></td>
         <td><%= movie.descripcion %></td>
         <td><%= movie.visualizaciones %></td>
         <td><%= movie.image %></td>
