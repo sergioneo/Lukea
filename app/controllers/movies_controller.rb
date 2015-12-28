@@ -1,5 +1,7 @@
 class MoviesController < ApplicationController
   before_action :set_movie, only: [:show, :edit, :update, :destroy]
+  before_action :verify_is_admin, :except => [:show, :index]
+
 
   # GET /movies
   # GET /movies.json
@@ -71,5 +73,9 @@ class MoviesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def movie_params
       params.require(:movie).permit(:titulo, :descripcion, :visualizaciones, :image, :pelicula_url, category_ids: [])
+    end
+
+    def verify_is_admin
+      (current_user.nil?) ? redirect_to(root_path) : (redirect_to(root_path) unless current_user.admin?)
     end
 end

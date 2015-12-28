@@ -25,13 +25,16 @@
         <td><%= movie.image %></td>
         <td><%= movie.category_ids %></td>
         <td><%= link_to 'Show', movie %></td>
+        <% if current_user.try(:admin?) %>
         <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
         <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
+<% if current_user.try(:admin?) %>
 <%= link_to 'New Movie', new_movie_path %>
+<% end %>
