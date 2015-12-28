@@ -1,5 +1,11 @@
 source 'https://rubygems.org'
 
+#Usuarios
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem 'bootstrap-sass'
 #Heroku
 ruby "2.2.3"
 gem 'puma' #WebServer

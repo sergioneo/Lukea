@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :admins
+  devise_for :users
   resources :movies
   resources :categories
   # The priority is based upon order of creation: first created -> highest priority.
