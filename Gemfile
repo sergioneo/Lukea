@@ -1,12 +1,15 @@
 source 'https://rubygems.org'
 
+
+#Cambio de nombre
+gem 'rename'
 #Usuarios
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'bootstrap-sass'
-#Heroku
+#LukeaTv
 ruby "2.2.3"
 gem 'puma' #WebServer
 gem 'rails_12factor', group: :production
