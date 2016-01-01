@@ -8,10 +8,15 @@ class MoviesController < ApplicationController
   # GET /movies
   # GET /movies.json
   def index
-    @movies = Movie.all
-    @movies_categoria = Movie.where(params[:id_categoria_buscada])
-    @movies_valoradas = @movies.order(:valoracion)
-    @movies_categoria = @movies.order(:n_comentarios)
+    if params[:id_categoria_buscada]
+      @movies = Movie.where(params[:id_categoria_buscada])
+    elsif params[:valoracion]
+      @movies = Movie.order(:valoracion).reverse
+    elsif params[:n_comentarios]
+      @movies = Movie.order(:n_comentarios).reverse
+    else
+      @movies = Movie.all #Mas recientes
+    end
   end
 
   # GET /movies/1
@@ -76,7 +81,9 @@ class MoviesController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.movie_id = params[:id]
     @comment.user_id = current_user.id
-    if @comment.save
+    @movie = Movie.find(@comment.movie_id)
+    @movie.n_comentarios += 1
+    if @comment.save && @movie.save
       redirect_to action: 'show', id: @comment.movie_id, notice: 'Comentario creado'
     else
       redirect_to @movie, notice: 'Comentario no creado.'
@@ -84,8 +91,13 @@ class MoviesController < ApplicationController
   end
 
   def destroy_comment
-    @comment.destroy
-    redirect_to action:'show', id: params[:movie_id], notice: 'Eliminado el comentario'
+    @movie.n_comentarios -= 1
+
+    if @movie.save && @comment.destroy
+      redirect_to action:'show', id: params[:movie_id], notice: 'Eliminado el comentario'
+    else
+      redirect_to action:'show', id: params[:movie_id], notice: 'Hubo un error'
+    end
   end
 
   private
@@ -96,6 +108,7 @@ class MoviesController < ApplicationController
 
     def set_comment
       @comment = Comment.find(params[:id])
+      @movie = Movie.find(@comment.movie_id)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

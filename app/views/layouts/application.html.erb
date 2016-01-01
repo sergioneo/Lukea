@@ -7,17 +7,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-      <% if user_signed_in?%>
-        <%= image_tag(current_user.foto_url,size: "20x20" , :alt => "Foto Usuario") %>
-        <%= current_user.nombre %>
-        <li>Saldo: <%= current_user.saldo %></li>
-        <%= link_to 'Cerrar Sesion', destroy_user_session_path, method: :delete %> | <%= link_to 'Preferencias', edit_user_registration_path, method: :get %>
-      <% else %>
-        <%= link_to 'Iniciar sesion', new_user_session_path, method: :get %>
-      <% end %>
+  <% if user_signed_in?%>
+    <%= image_tag(current_user.foto_url,size: "20x20" , :alt => "Foto Usuario") %>
+    <%= current_user.nombre %>
+    <li>Saldo: <%= current_user.saldo %></li>
+    <%= link_to 'Cerrar Sesion', destroy_user_session_path, method: :delete %> | <%= link_to 'Preferencias', edit_user_registration_path, method: :get %>
+  <% else %>
+    <%= link_to 'Iniciar sesion', new_user_session_path, method: :get %>
+  <% end %>
+  <hr>
+  Mostrar por: <%= link_to 'Mas Nuevos', movies_path(:valoracion => true) %> | <%= link_to 'Mas Valorados', movies_path(:valoracion => true) %> | <%= link_to 'Mas Comentados', movies_path(:n_comentarios => true) %>
 
 
-<%= yield %>
+  <%= yield %>
 
 </body>
 </html>

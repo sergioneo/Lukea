@@ -72,7 +72,7 @@
     <tr>
       <td><%= comment.contenido %></td>
       <% if (comment.user_id == current_user.id) || current_user.try(:admin) %>
-      <td><%= link_to 'Eliminar', destroy_comment_path(comment, :movie_id => params[:id]), controller: :movie, method: :delete, data: { confirm: '¿Confirma eliminación?' } %></td>
+      <td><%= link_to 'Eliminar', destroy_comment_path(comment, :movie_id => params[:id]), controller: :movie, method: :delete, data: { confirm: '¿Confirma eliminación?'} %></td>
       <% end %>
     </tr>
     <% end %>
