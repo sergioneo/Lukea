@@ -237,7 +237,7 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   config.omniauth :facebook, ENV["LUKEA_FACEBOOK_ID"], ENV["LUKEA_FACEBOOK_SECRET"]
-  config.omniauth :google_oauth2, ENV["LUKEA_GOOGLE_ID"], ENV["LUKEA_GOOGLE_ID"],{:client_options => { :ssl => { :verify => !Rails.env.development? } }, :skip_jwt => true}
+  config.omniauth :google_oauth2, ENV["LUKEA_GOOGLE_ID"], ENV["LUKEA_GOOGLE_SECRET"],{:client_options => { :ssl => { :verify => !Rails.env.development? } }, :skip_jwt => true}
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
