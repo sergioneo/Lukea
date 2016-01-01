@@ -1,2 +1,2 @@
-module MoviesHelper
+module MoviesHelper	
 end

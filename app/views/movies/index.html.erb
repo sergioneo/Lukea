@@ -9,9 +9,12 @@
       <th>URL</th>
       <th>Descripcion</th>
       <th>Visualizaciones</th>
-      <th>Image</th>
-      <th>Categories</th>      
-      <th colspan="3"></th>
+      <th>ImagenURL</th>
+      <th> valoracion </th>
+      <th> n_comentarios </th>
+      <th> Fecha de creacion </th>
+      <th>Categorias</th>      
+      <th colspan="9"></th>
     </tr>
   </thead>
 
@@ -23,7 +26,15 @@
         <td><%= movie.descripcion %></td>
         <td><%= movie.visualizaciones %></td>
         <td><%= movie.image %></td>
-        <td><%= movie.category_ids %></td>
+        <td><%= movie.valoracion %></td>
+        <td><%= movie.n_comentarios %></td>
+        <td><%= movie.created_at %></td>
+
+        <td>
+          <% movie.category_ids.each do |category_id| %>
+            <%= Category.find(category_id).category %>
+          <% end %> 
+        </td>
         <td><%= link_to 'Show', movie %></td>
         <% if current_user.try(:admin?) %>
         <td><%= link_to 'Edit', edit_movie_path(movie) %></td>

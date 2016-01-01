@@ -1,18 +1,24 @@
 class MoviesController < ApplicationController
   before_action :set_movie, only: [:show, :edit, :update, :destroy]
-  before_action :verify_is_admin, :except => [:show, :index]
+  before_action :verify_is_admin, :except => [:show, :index, :create_comment, :destroy_comment]
+  before_action :set_comment, only: [:destroy_comment]
+  before_action :authenticate_user!, only: [:create_comment, :destroy_comment]
 
 
   # GET /movies
   # GET /movies.json
   def index
     @movies = Movie.all
-
+    @movies_categoria = Movie.where(params[:id_categoria_buscada])
+    @movies_valoradas = @movies.order(:valoracion)
+    @movies_categoria = @movies.order(:n_comentarios)
   end
 
   # GET /movies/1
   # GET /movies/1.json
   def show
+    @comment = Comment.new
+    @comments = Comment.where(movie_id: params[:id])
   end
 
   # GET /movies/new
@@ -31,7 +37,7 @@ class MoviesController < ApplicationController
 
     respond_to do |format|
       if @movie.save
-        format.html { redirect_to @movie, notice: 'Movie was successfully created.' }
+        format.html { redirect_to @movie, notice: 'Pelicula' }
         format.json { render :show, status: :created, location: @movie }
       else
         format.html { render :new }
@@ -45,7 +51,7 @@ class MoviesController < ApplicationController
   def update
     respond_to do |format|
       if @movie.update(movie_params)
-        format.html { redirect_to @movie, notice: 'Movie was successfully updated.' }
+        format.html { redirect_to @movie, notice: 'Pelicula actualizada' }
         format.json { render :show, status: :ok, location: @movie }
       else
         format.html { render :edit }
@@ -59,9 +65,27 @@ class MoviesController < ApplicationController
   def destroy
     @movie.destroy
     respond_to do |format|
-      format.html { redirect_to movies_url, notice: 'Movie was successfully destroyed.' }
+      format.html { redirect_to movies_url, notice: 'Pelicula eliminada' }
       format.json { head :no_content }
     end
+  end
+
+  #Comentarios
+
+  def create_comment
+    @comment = Comment.new(comment_params)
+    @comment.movie_id = params[:id]
+    @comment.user_id = current_user.id
+    if @comment.save
+      redirect_to action: 'show', id: @comment.movie_id, notice: 'Comentario creado'
+    else
+      redirect_to @movie, notice: 'Comentario no creado.'
+    end
+  end
+
+  def destroy_comment
+    @comment.destroy
+    redirect_to action:'show', id: params[:movie_id], notice: 'Eliminado el comentario'
   end
 
   private
@@ -70,12 +94,16 @@ class MoviesController < ApplicationController
       @movie = Movie.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def movie_params
-      params.require(:movie).permit(:titulo, :descripcion, :visualizaciones, :image, :pelicula_url, category_ids: [])
+    def set_comment
+      @comment = Comment.find(params[:id])
     end
 
-    def verify_is_admin
-      (current_user.nil?) ? redirect_to(root_path) : (redirect_to(root_path) unless current_user.admin?)
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def movie_params
+      params.require(:movie).permit(:titulo, :descripcion, :visualizaciones, :image, :pelicula_url, category_ids: [], comments_attributes:[:contenido])
+    end
+
+    def comment_params
+      params.require(:comment).permit(:contenido)
     end
 end

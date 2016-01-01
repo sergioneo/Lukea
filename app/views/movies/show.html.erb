@@ -27,10 +27,60 @@
 
 <p>
   <strong>Categorias:</strong>
-  <%= @movie.category_ids %>
+  <% @movie.category_ids.each do |category_id| %>
+  <%= Category.find(category_id).category %>
+  <% end %>
 </p>
 
-<% if current_user.try(:admin?) %>
-<%= link_to 'Edit', edit_movie_path(@movie) %> |
+
+<%= form_for @comment, :url => {:action => "create_comment"} do |f| %>
+  <% if @comment.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+  
+    <ul>
+      <% @comment.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <% if user_signed_in? %>
+  <div class="field">
+    <%= f.label :Realizar_comentario %><br>
+    <%= f.text_field :contenido %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Enviar Comentario" %>
+  </div>
+  <% else %>
+    <%= f.label :Comenta %><br>
+    <%= button_to "Inicia sesión", new_user_session_path %>
+  <% end %>
 <% end %>
-<%= link_to 'Back', movies_path %>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Comentarios</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @comments.each do |comment| %>
+    <tr>
+      <td><%= comment.contenido %></td>
+      <% if (comment.user_id == current_user.id) || current_user.try(:admin) %>
+      <td><%= link_to 'Eliminar', destroy_comment_path(comment, :movie_id => params[:id]), controller: :movie, method: :delete, data: { confirm: '¿Confirma eliminación?' } %></td>
+      <% end %>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<% if current_user.try(:admin?) %>
+<%= link_to 'Editar', edit_movie_path(@movie) %> |
+<% end %>
+<%= link_to 'Volver', movies_path %>

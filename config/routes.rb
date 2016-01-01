@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
+  post 'movies/:id/create_comment', to: 'movies#create_comment', as: 'create_comment' 
+  delete 'movies/:id/destroy_comment', to: 'movies#destroy_comment', as: 'destroy_comment' 
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

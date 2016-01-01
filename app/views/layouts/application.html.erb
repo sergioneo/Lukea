@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Herokup</title>
+  <title>lukeaTV</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
       <% if user_signed_in?%>
-          <li><%= link_to 'Cerrar Sesion', destroy_user_session_path, method: :delete %></li>
-          <li><%= link_to 'Preferencias', edit_user_registration_path, method: :get %></li>
+        <%= image_tag(current_user.foto_url,size: "20x20" , :alt => "Foto Usuario") %>
+        <%= current_user.nombre %>
+        <li>Saldo: <%= current_user.saldo %></li>
+        <%= link_to 'Cerrar Sesion', destroy_user_session_path, method: :delete %> | <%= link_to 'Preferencias', edit_user_registration_path, method: :get %>
       <% else %>
-        <li><%= link_to 'Iniciar sesion', new_user_session_path, method: :get %></li>
+        <%= link_to 'Iniciar sesion', new_user_session_path, method: :get %>
       <% end %>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+
 
 <%= yield %>
 
