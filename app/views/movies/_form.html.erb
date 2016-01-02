@@ -27,7 +27,7 @@
     <%= f.label :image %><br>
     <%= f.text_field :image %>
   </div>
-    <div class="field">
+  <div class="field">
     <%= f.label :category %><br>
     <%= collection_check_boxes(:movie, :category_ids, Category.order("category"), :id, :category, {:selected => @movie.category_ids, :include_blank => true}, {:multiple => true}) %>
   </div>

@@ -32,6 +32,10 @@
   <% end %>
 </p>
 
+<p>
+  <strong>Valoración:</strong>
+  <%= rating_for @movie, "Valoración", :disable_after_rate => false %>
+</p>
 
 <%= form_for @comment, :url => {:action => "create_comment"} do |f| %>
   <% if @comment.errors.any? %>
@@ -71,7 +75,7 @@
     <% @comments.each do |comment| %>
     <tr>
       <td><%= comment.contenido %></td>
-      <% if (comment.user_id == current_user.id) || current_user.try(:admin) %>
+      <% if (comment.user_id == current_user.try(:id)) || current_user.try(:admin) %>
       <td><%= link_to 'Eliminar', destroy_comment_path(comment, :movie_id => params[:id]), controller: :movie, method: :delete, data: { confirm: '¿Confirma eliminación?'} %></td>
       <% end %>
     </tr>

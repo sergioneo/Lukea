@@ -7,4 +7,6 @@ class Movie < ActiveRecord::Base
 	accepts_nested_attributes_for :comments
 
 	validates :titulo, presence: true, length: { minimum: 1 }
+
+	ratyrate_rateable "Valoración"
 end
