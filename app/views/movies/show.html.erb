@@ -22,7 +22,7 @@
 
 <p>
   <strong>Imagen:</strong>
-  <%= @movie.image %>
+  <%= image_tag(@movie.image.url) if @movie.image? %>
 </p>
 
 <p>

@@ -6,6 +6,5 @@ class NuevosRequerimientos < ActiveRecord::Migration
   	add_column :movies, :n_comentarios, :integer
   	add_column :movies, :valoracion, :float
   	add_column :movies, :video_url, :string
-  	drop_table :commentaries
   end
 end

@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
-
+#Subida de imágenes
+gem 'carrierwave'
+gem 'mini_magick'
 #Valoracion de Peliculas
 gem 'ratyrate'
 #Cambio de nombre
