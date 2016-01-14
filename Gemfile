@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'carrierwave'
 gem 'mini_magick'
 #Valoracion de Peliculas
-gem 'ratyrate'
+gem 'ratyrate', :github => 'wazery/ratyrate'
 #Cambio de nombre
 gem 'rename'
 #Usuarios
