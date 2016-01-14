@@ -15,7 +15,7 @@ class Movie < ActiveRecord::Base
 	private
 		
 		def image_size
-			if image.size > 5.megabytes
+			if image.size > 10.megabytes
 				errors.add(:image, "Ingrese imagen menor a 5MB")
 			end
 		end

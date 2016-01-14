@@ -26,7 +26,7 @@
         <td><%= movie.descripcion %></td>
         <td><%= movie.visualizaciones %></td>
         <td><%= image_tag(movie.image.url, size: "250x250") if movie.image? %></td>
-        <td><%= movie.valoracion %></td>
+        <td><%= rating_for movie, "Valoración", :disable_after_rate => true %></td>
         <td><%= movie.n_comentarios %></td>
         <td><%= movie.created_at %></td>
 

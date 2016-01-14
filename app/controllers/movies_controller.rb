@@ -11,12 +11,16 @@ class MoviesController < ApplicationController
     if params[:id_categoria_buscada]
       @movies = Movie.where(params[:id_categoria_buscada])
     elsif params[:valoracion]
-      @movies = Movie.order(:valoracion).reverse
+      @movies = []
+      RatingCache.order(:avg).reverse.each_with_index do |valorado,i|
+        @movies[i] = valorado.cacheable
+      end
     elsif params[:n_comentarios]
       @movies = Movie.order(:n_comentarios).reverse
     else
       @movies = Movie.all #Mas recientes
     end
+    @por_valoracion = RatingCache.order(:avg)
   end
 
   # GET /movies/1
