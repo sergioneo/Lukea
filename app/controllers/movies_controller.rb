@@ -4,7 +4,6 @@ class MoviesController < ApplicationController
   before_action :set_comment, only: [:destroy_comment]
   before_action :authenticate_user!, only: [:create_comment, :destroy_comment]
 
-
   # GET /movies
   # GET /movies.json
   def index
@@ -21,6 +20,7 @@ class MoviesController < ApplicationController
       @movies = Movie.all #Mas recientes
     end
     @por_valoracion = RatingCache.order(:avg)
+    @video = Vimeo::Simple::Video.info("151779045")
   end
 
   # GET /movies/1

@@ -83,6 +83,10 @@ GEM
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     hashie (3.4.3)
+    httparty (0.13.7)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
+    httpclient (2.7.1)
     i18n (0.7.0)
     jbuilder (2.3.2)
       activesupport (>= 3.0.0, < 5)
@@ -106,6 +110,7 @@ GEM
     multipart-post (2.0.0)
     nokogiri (1.6.7.1)
       mini_portile2 (~> 2.0.0.rc2)
+    oauth (0.4.7)
     oauth2 (1.0.0)
       faraday (>= 0.8, < 0.10)
       jwt (~> 1.0)
@@ -196,6 +201,12 @@ GEM
     uglifier (2.7.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    vimeo (1.5.4)
+      httparty (>= 0.4.5)
+      httpclient (>= 2.1.5.2)
+      json (>= 1.1.9)
+      multipart-post (>= 1.0.1)
+      oauth (>= 0.4.3)
     warden (1.2.3)
       rack (>= 1.0)
     web-console (2.2.1)
@@ -230,6 +241,7 @@ DEPENDENCIES
   spring
   turbolinks
   uglifier (>= 1.3.0)
+  vimeo
   web-console (~> 2.0)
 
 BUNDLED WITH

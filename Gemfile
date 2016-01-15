@@ -1,4 +1,7 @@
 source 'https://rubygems.org'
+
+#Videos de Vimeo
+gem 'vimeo'
 #Subida de imágenes
 gem 'carrierwave'
 gem 'mini_magick'
