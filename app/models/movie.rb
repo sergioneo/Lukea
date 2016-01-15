@@ -12,6 +12,16 @@ class Movie < ActiveRecord::Base
 
 	validates :titulo, presence: true, length: { minimum: 1 }
 	
+	#Buscador de películas
+	
+	def self.search(search)
+		if search 
+			where('lower(titulo) LIKE ?', "%#{search.downcase}%")
+		else
+			scoped
+		end
+	end
+	
 	private
 		
 		def image_size

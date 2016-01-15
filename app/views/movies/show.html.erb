@@ -1,41 +1,82 @@
 <p id="notice"><%= notice %></p>
 
+
+
 <p>
   <strong>Titulo:</strong>
   <%= @movie.titulo %>
 </p>
-
 <p>
-  <strong>Descripcion:</strong>
-  <%= @movie.descripcion %>
+  <strong>Sinopsis:</strong>
+  <%= @movie.sinopsis%>
 </p>
-
+<p>
+  <strong>Precio:</strong>
+  <%= @movie.precio %>
+</p>
+<p>
+  <strong>Tipo:</strong>
+  <%= @movie.tipo %>
+</p>
+<p>
+  <strong>Direccion:</strong>
+  <%= @movie.direccion %>
+</p>
+<p>
+  <strong>Produccion:</strong>
+  <%= @movie.produccion %>
+</p>
+<p>
+  <strong>Elenco:</strong>
+  <%= @movie.elenco %>
+</p>
+<p>
+  <strong>Pais:</strong>
+  <%= @movie.pais %>
+</p>
+<p>
+  <strong>Año:</strong>
+  <%= @movie.ano %>
+</p>
+<p>
+  <strong>Duracion:</strong>
+  <%= @movie.duracion %>
+</p>
+<p>
+  <strong>Vimeo_ID:</strong>
+  <%= @movie.id_vimeo %>
+</p>
 <p>
   <strong>Visualizaciones:</strong>
   <%= @movie.visualizaciones %>
 </p>
-
-<p>
-  <strong>URL:</strong>
-  <%= @movie.pelicula_url %>
-</p>
-
-<p>
-  <strong>Imagen:</strong>
-  <%= image_tag(@movie.image.url) if @movie.image? %>
-</p>
-
-<p>
-  <strong>Categorias:</strong>
-  <% @movie.category_ids.each do |category_id| %>
-  <%= Category.find(category_id).category %>
-  <% end %>
-</p>
-
 <p>
   <strong>Valoración:</strong>
   <%= rating_for @movie, "Valoración", :disable_after_rate => false %>
 </p>
+<p>
+  <strong>N.Comentarios:</strong>
+  <%= @movie.n_comentarios %>
+</p>
+<p>
+  <strong>Fecha de creación:</strong>
+  <%= @movie.created_at %>
+</p>
+<p>
+  <strong>Categorías :</strong>
+  <% @movie.category_ids.each do |category_id| %>
+    <%= Category.find(category_id).category %>
+  <% end %>
+<p>
+  <strong>ImagenURL:</strong>
+  <%= @movie.image %>
+</p>
+<p>
+  <strong>Película:</strong>
+  <iframe src="//player.vimeo.com/video/<%= @movie.id_vimeo %>" width="250"  frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+</p>
+
+
 
 <%= form_for @comment, :url => {:action => "create_comment"} do |f| %>
   <% if @comment.errors.any? %>

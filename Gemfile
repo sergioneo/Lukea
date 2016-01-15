@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+
+#Paginaciones
+gem 'will_paginate', '~> 3.0.6'
 #Videos de Vimeo
 gem 'vimeo'
 #Subida de imágenes

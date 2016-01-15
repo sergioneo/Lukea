@@ -1,20 +1,31 @@
 <p id="notice"><%= notice %></p>
 
-<iframe src="//player.vimeo.com/video/151779045" width="WIDTH" height="HEIGHT" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-
+<%= form_tag({:controller => "movies", :action => "index"}, :method => :get) do %>
+  <%= text_field_tag "busqueda", params[:busqueda] %>
+  <%= submit_tag("Buscar")%>
+<% end %>
 
 <table>
   <thead>
     <tr>
       <th>Titulo</th>
-      <th>URL</th>
-      <th>Descripcion</th>
+      <th>Tipo</th>
+      <th>Sinopsis</th>
+      <th>Precio</th>
+      <th>Direccion</th>
+      <th>Produccion</th>
+      <th>Elenco</th>
+      <th>Pais</th>
+      <th>Año</th>
+      <th>Duracion</th>
+      <th>Vimeo_ID</th>
       <th>Visualizaciones</th>
+      <th>Valoración</th>
+      <th>N.Comentarios</th>
+      <th>Fecha de creación</th>
+      <th>Categorías</th> 
       <th>ImagenURL</th>
-      <th> valoracion </th>
-      <th> n_comentarios </th>
-      <th> Fecha de creacion </th>
-      <th>Categorias</th>      
+      <th>Película</th>
       <th colspan="9"></th>
     </tr>
   </thead>
@@ -23,19 +34,29 @@
     <% @movies.each do |movie| %>
       <tr>
         <td><%= movie.titulo %></td>
-        <td><%= movie.pelicula_url %></td>
-        <td><%= movie.descripcion %></td>
+        <td><%= movie.tipo %></td>
+        <td><%= movie.sinopsis %></td>
+        <td><%= movie.precio %></td>
+        <td><%= movie.direccion %></td>
+        <td><%= movie.produccion %></td>
+        <td><%= movie.elenco %></td>
+        <td><%= movie.pais %></td>
+        <td><%= movie.ano %></td>
+        <td><%= movie.duracion %></td>
+        <td><%= movie.id_vimeo %></td>
         <td><%= movie.visualizaciones %></td>
-        <td><%= image_tag(movie.image.url, size: "250x250") if movie.image? %></td>
         <td><%= rating_for movie, "Valoración", :disable_after_rate => true %></td>
         <td><%= movie.n_comentarios %></td>
         <td><%= movie.created_at %></td>
-
         <td>
           <% movie.category_ids.each do |category_id| %>
             <%= Category.find(category_id).category %>
           <% end %> 
         </td>
+        <td><%= image_tag(movie.image.url, size: "250x250") if movie.image? %></td>
+        <td><iframe src="//player.vimeo.com/video/<%= movie.id_vimeo %>" width="250"  frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+</td>
+        
         <td><%= link_to 'Show', movie %></td>
         <% if current_user.try(:admin?) %>
         <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
@@ -45,7 +66,6 @@
     <% end %>
   </tbody>
 </table>
-
 <br>
 <% if current_user.try(:admin?) %>
 <%= link_to 'New Movie', new_movie_path %>

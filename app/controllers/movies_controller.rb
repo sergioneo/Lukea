@@ -3,24 +3,29 @@ class MoviesController < ApplicationController
   before_action :verify_is_admin, :except => [:show, :index, :create_comment, :destroy_comment]
   before_action :set_comment, only: [:destroy_comment]
   before_action :authenticate_user!, only: [:create_comment, :destroy_comment]
-
+  
+  
   # GET /movies
   # GET /movies.json
   def index
-    if params[:id_categoria_buscada]
-      @movies = Movie.where(params[:id_categoria_buscada])
-    elsif params[:valoracion]
-      @movies = []
-      RatingCache.order(:avg).reverse.each_with_index do |valorado,i|
-        @movies[i] = valorado.cacheable
-      end
-    elsif params[:n_comentarios]
-      @movies = Movie.order(:n_comentarios).reverse
+    if params[:busqueda]
+      @movies = Movie.search(params[:busqueda])
     else
-      @movies = Movie.all #Mas recientes
+      if params[:id_categoria_buscada]
+        @movies = Movie.where(params[:id_categoria_buscada])
+      elsif params[:valoracion]
+        @movies = []
+        RatingCache.order(:avg).reverse.each_with_index do |valorado,i|
+          @movies[i] = valorado.cacheable
+        end
+      elsif params[:n_comentarios]
+        @movies = Movie.order(:n_comentarios).reverse
+      else
+        @movies = Movie.all #Mas recientes
+      end
+      @por_valoracion = RatingCache.order(:avg)
+      @video = Vimeo::Simple::Video.info("151779045")
     end
-    @por_valoracion = RatingCache.order(:avg)
-    @video = Vimeo::Simple::Video.info("151779045")
   end
 
   # GET /movies/1
@@ -42,6 +47,7 @@ class MoviesController < ApplicationController
   # POST /movies
   # POST /movies.json
   def create
+    @movie.duracion = Vimeo::Simple::Video.info(@movie.id_vimeo)[0]["duration"]
     @movie = Movie.new(movie_params)
 
     respond_to do |format|
@@ -58,6 +64,7 @@ class MoviesController < ApplicationController
   # PATCH/PUT /movies/1
   # PATCH/PUT /movies/1.json
   def update
+    @movie.duracion = Vimeo::Simple::Video.info(@movie.id_vimeo)[0]["duration"]
     respond_to do |format|
       if @movie.update(movie_params)
         format.html { redirect_to @movie, notice: 'Pelicula actualizada' }
@@ -117,7 +124,7 @@ class MoviesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def movie_params
-      params.require(:movie).permit(:titulo, :descripcion, :visualizaciones, :image, :pelicula_url, category_ids: [], comments_attributes:[:contenido])
+      params.require(:movie).permit(:precio, :sinopsis, :titulo, :id_vimeo, :tipo, :direccion, :produccion, :elenco, :pais, :ano, :visualizaciones, :image, category_ids: [], comments_attributes:[:contenido])
     end
 
     def comment_params

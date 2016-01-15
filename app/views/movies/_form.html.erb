@@ -16,23 +16,49 @@
     <%= f.text_field :titulo %>
   </div>
   <div class="field">
-    <%= f.label :descripcion %><br>
-    <%= f.text_area :descripcion %>
+    <%= f.label :id_vimeo %><br>
+    <%= f.text_field :id_vimeo %>
   </div>
   <div class="field">
-    <%= f.label :pelicula_url %><br>
-    <%= f.text_field :pelicula_url %>
+    <%= f.label :precio %><br>
+    <%= f.text_field :precio %>
   </div>
-  
-  <span class="image">
-    <%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png' %>
-  </span>
-  
+  <div class="field">
+    <%= f.label :sinopsis %><br>
+    <%= f.text_area :sinopsis %>
+  </div>
   <div class="field">
     <%= f.label :category %><br>
     <%= collection_check_boxes(:movie, :category_ids, Category.order("category"), :id, :category, {:selected => @movie.category_ids, :include_blank => true}, {:multiple => true}) %>
   </div>
-  <div class="actions">
+  <div class="field">
+    <%= f.label :tipo %><br>
+    <%= f.text_field :tipo %>
+  </div>
+  <div class="field">
+    <%= f.label :direccion %><br>
+    <%= f.text_field :direccion %>
+  </div>
+  <div class="field">
+    <%= f.label :produccion %><br>
+    <%= f.text_field :produccion %>
+  </div>
+  <div class="field">
+    <%= f.label :elenco %><br>
+    <%= f.text_field :elenco %>
+  </div>
+  <div class="field">
+    <%= f.label :pais %><br>
+    <%= f.text_field :pais %>
+  </div>
+  <div class="field">
+    <%= f.label "Año" %><br>
+    <%= f.text_field :ano %>
+  </div>
+  <span class="image">
+    <%= f.file_field :image, accept: 'image/jpeg,image/gif,image/png' %>
+  </span>
+    <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>

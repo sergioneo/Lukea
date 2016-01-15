@@ -16,7 +16,7 @@
     <%= link_to 'Iniciar sesion', new_user_session_path, method: :get %>
   <% end %>
   <hr>
-  Mostrar por: <%= link_to 'Mas Nuevos', movies_path(:valoracion => true) %> | <%= link_to 'Mas Valorados', movies_path(:valoracion => true) %> | <%= link_to 'Mas Comentados', movies_path(:n_comentarios => true) %>
+  Mostrar por: <%= link_to 'Mas Recientes', movies_path(:valoracion => true) %> | <%= link_to 'Mas Valorados', movies_path(:valoracion => true) %> | <%= link_to 'Mas Comentados', movies_path(:n_comentarios => true) %>
 
 
   <%= yield %>
