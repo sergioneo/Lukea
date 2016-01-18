@@ -47,8 +47,8 @@ class MoviesController < ApplicationController
   # POST /movies
   # POST /movies.json
   def create
-    @movie.duracion = Vimeo::Simple::Video.info(@movie.id_vimeo)[0]["duration"]
     @movie = Movie.new(movie_params)
+    @movie.duracion = Vimeo::Simple::Video.info(@movie.id_vimeo)[0]["duration"]
 
     respond_to do |format|
       if @movie.save

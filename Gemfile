@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 
 
+#Actualidades y publicaciones enriquecidas
+gem 'ckeditor'
 #Paginaciones
 gem 'will_paginate', '~> 3.0.6'
 #Videos de Vimeo

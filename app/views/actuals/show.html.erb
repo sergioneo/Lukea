@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Titulo:</strong>
+  <%= @actual.titulo %>
+</p>
+
+<p>
+  <strong>Imagen url:</strong>
+  <%= image_tag(@actual.imagen_url.url, size: "250x250") if @actual.imagen_url? %>
+</p>
+
+<p>
+  <strong>Categoria:</strong>
+  <%= @actual.category.category %>
+</p>
+
+<p>
+  <strong>Bajada:</strong>
+  <%= @actual.bajada %>
+</p>
+
+<p>
+  <strong>Autor:</strong>
+  <%= @actual.autor %>
+</p>
+
+<p>
+  <strong>Contenido:</strong>
+  <%= @actual.contenido.html_safe %>
+</p>
+
+<%= link_to 'Edit', edit_actual_path(@actual) %> |
+<%= link_to 'Back', actuals_path %>

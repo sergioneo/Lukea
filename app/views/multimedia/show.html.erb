@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Imagen:</strong>
+  <td><%= image_tag(@multimedium.imagen, size: "250x250") if @multimedium.imagen? %></td>
+
+</p>
+
+<p>
+  <strong>Titulo:</strong>
+  <%= @multimedium.titulo %>
+</p>
+
+<p>
+  <strong>Video url:</strong>
+  <iframe width="420" height="315" src="https://www.youtube.com/embed/<%= @multimedium.video_url %>" frameborder="0" allowfullscreen></iframe>
+</p>
+
+<%= link_to 'Edit', edit_multimedium_path(@multimedium) %> |
+<%= link_to 'Back', multimedia_path %>

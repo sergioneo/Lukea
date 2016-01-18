@@ -1,0 +1,6 @@
+<%= form_tag({:controller => "movies", :action => "index"}, :method => :get) do %>
+  <%= text_field_tag "busqueda", params[:busqueda] %>
+  <%= submit_tag("Buscar")%>
+<% end %>
+Mostrar por: <%= link_to 'Mas Recientes', movies_path(:valoracion => true) %> | <%= link_to 'Mas Valorados', movies_path(:valoracion => true) %> | <%= link_to 'Mas Comentados', movies_path(:n_comentarios => true) %>
+<hr>

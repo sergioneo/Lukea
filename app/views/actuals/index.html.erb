@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Actuals</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Titulo</th>
+      <th>Imagen url</th>
+      <th>Categoria</th>
+      <th>Bajada</th>
+      <th>Autor</th>
+      <th>Contenido</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @actuals.each do |actual| %>
+      <tr>
+        <td><%= actual.titulo %></td>
+        <td>  <%= image_tag(actual.imagen_url.url, size: "250x250") if actual.imagen_url? %></td>
+        <td><%= actual.category.category %></td>
+        <td><%= actual.bajada %></td>
+        <td><%= actual.autor %></td>
+        <td><%= actual.contenido.html_safe %></td>
+        <td><%= link_to 'Show', actual %></td>
+        <td><%= link_to 'Edit', edit_actual_path(actual) %></td>
+        <td><%= link_to 'Destroy', actual, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Actual', new_actual_path %>

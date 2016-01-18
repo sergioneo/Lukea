@@ -1,10 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<%= form_tag({:controller => "movies", :action => "index"}, :method => :get) do %>
-  <%= text_field_tag "busqueda", params[:busqueda] %>
-  <%= submit_tag("Buscar")%>
-<% end %>
-
+<%= render 'nav_movies' %>
 <table>
   <thead>
     <tr>

@@ -11,10 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160115195712) do
+ActiveRecord::Schema.define(version: 20160118180141) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "actuals", force: :cascade do |t|
+    t.string   "titulo"
+    t.string   "imagen_url"
+    t.integer  "category_id"
+    t.string   "bajada"
+    t.string   "autor"
+    t.text     "contenido"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "actuals", ["category_id"], name: "index_actuals_on_category_id", using: :btree
 
   create_table "average_caches", force: :cascade do |t|
     t.integer  "rater_id"
@@ -37,6 +50,22 @@ ActiveRecord::Schema.define(version: 20160115195712) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string   "data_file_name",               null: false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.integer  "assetable_id"
+    t.string   "assetable_type",    limit: 30
+    t.string   "type",              limit: 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id"
@@ -66,6 +95,14 @@ ActiveRecord::Schema.define(version: 20160115195712) do
     t.string   "id_vimeo"
     t.integer  "precio"
     t.integer  "ano"
+  end
+
+  create_table "multimedia", force: :cascade do |t|
+    t.string   "imagen"
+    t.string   "titulo"
+    t.string   "video_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "overall_averages", force: :cascade do |t|
@@ -125,6 +162,7 @@ ActiveRecord::Schema.define(version: 20160115195712) do
   add_index "users", ["email", "provider", "uid"], name: "index_users_on_identity", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "actuals", "categories"
   add_foreign_key "comments", "movies"
   add_foreign_key "comments", "users"
 end

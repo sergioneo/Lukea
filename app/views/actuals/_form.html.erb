@@ -1,0 +1,41 @@
+<%= form_for(@actual) do |f| %>
+  <% if @actual.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@actual.errors.count, "error") %> prohibited this actual from being saved:</h2>
+
+      <ul>
+      <% @actual.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :titulo %><br>
+    <%= f.text_field :titulo %>
+  </div>
+  <div class="field">
+    <%= f.label :imagen_url %><br>
+    <%= f.file_field :imagen_url, accept: 'image/jpeg,image/gif,image/png' %>
+  </div>
+  <div class="field">
+    <%= f.label :categoria %><br>
+    <%= collection_select(:actual, :category_id, Category.order("category"), :id, :category, {:multiple => false}) %>
+  </div>
+  <div class="field">
+    <%= f.label :bajada %><br>
+    <%= f.text_field :bajada %>
+  </div>
+  <div class="field">
+    <%= f.label :autor %><br>
+    <%= f.text_field :autor %>
+  </div>
+  <div class="field">
+    <%= f.label :contenido %><br>
+    <%= f.cktext_area :contenido, rows: 10 %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

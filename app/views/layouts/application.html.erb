@@ -15,9 +15,14 @@
   <% else %>
     <%= link_to 'Iniciar sesion', new_user_session_path, method: :get %>
   <% end %>
-  <hr>
-  Mostrar por: <%= link_to 'Mas Recientes', movies_path(:valoracion => true) %> | <%= link_to 'Mas Valorados', movies_path(:valoracion => true) %> | <%= link_to 'Mas Comentados', movies_path(:n_comentarios => true) %>
-
+<hr>
+  <p>
+	<%= link_to 'Peliculas', movies_path %>
+	<%= link_to 'Categorias', categories_path %>
+	<%= link_to 'Actualidades', actuals_path %>
+	<%= link_to 'Multimedia', multimedia_path %>
+</p>
+<hr>
 
   <%= yield %>
 

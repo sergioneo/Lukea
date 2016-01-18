@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Multimedia</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Imagen</th>
+      <th>Titulo</th>
+      <th>Video</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @multimedia.each do |multimedium| %>
+      <tr>
+        <td><%= image_tag(multimedium.imagen, size: "250x250") if multimedium.imagen? %></td>
+        <td><%= multimedium.titulo %></td>
+        <td><iframe width="420" height="315" src="https://www.youtube.com/embed/<%= multimedium.video_url %>" frameborder="0" allowfullscreen></iframe></td>
+        <td><%= link_to 'Show', multimedium %></td>
+        <td><%= link_to 'Edit', edit_multimedium_path(multimedium) %></td>
+        <td><%= link_to 'Destroy', multimedium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Multimedium', new_multimedium_path %>
