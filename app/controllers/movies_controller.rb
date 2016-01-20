@@ -4,7 +4,6 @@ class MoviesController < ApplicationController
   before_action :set_comment, only: [:destroy_comment]
   before_action :authenticate_user!, only: [:create_comment, :destroy_comment]
   
-  
   # GET /movies
   # GET /movies.json
   def index
@@ -12,7 +11,7 @@ class MoviesController < ApplicationController
       @movies = Movie.search(params[:busqueda])
     else
       if params[:id_categoria_buscada]
-        @movies = Movie.where(params[:id_categoria_buscada])
+        @movies = Movie.joins(:category_movies).where("category_movies.category_id = ?", params[:id_categoria_buscada])
       elsif params[:valoracion]
         @movies = []
         RatingCache.order(:avg).reverse.each_with_index do |valorado,i|
@@ -21,10 +20,8 @@ class MoviesController < ApplicationController
       elsif params[:n_comentarios]
         @movies = Movie.order(:n_comentarios).reverse
       else
-        @movies = Movie.all #Mas recientes
+        @movies = Movie.all.reverse #Mas recientes
       end
-      @por_valoracion = RatingCache.order(:avg)
-      @video = Vimeo::Simple::Video.info("151779045")
     end
   end
 

@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   root 'welcome#index'
   post 'movies/:id/create_comment', to: 'movies#create_comment', as: 'create_comment' 
   delete 'movies/:id/destroy_comment', to: 'movies#destroy_comment', as: 'destroy_comment'
+  get 'nosotros', to: 'welcome#nosotros', as: 'nosotros'
+  get 'contacto', to: 'welcome#contacto', as: 'contacto'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

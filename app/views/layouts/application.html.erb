@@ -17,10 +17,17 @@
   <% end %>
 <hr>
   <p>
-	<%= link_to 'Peliculas', movies_path %>
-	<%= link_to 'Categorias', categories_path %>
+  <%= link_to 'Inicio', root_path %>
+	<%= link_to 'Peliculas', movies_path %> | 
+	<%= link_to 'Categorias', categories_path %> 
+	<%= link_to 'Mas Recientes', movies_path %>
+	<%= link_to 'Mas Valorados', movies_path(:valoracion => true) %>
+	<%= link_to 'Mas Comentados', movies_path(:n_comentarios => true) %> | 
 	<%= link_to 'Actualidades', actuals_path %>
 	<%= link_to 'Multimedia', multimedia_path %>
+	<%= link_to 'Contacto', contacto_path %>
+	<%= link_to 'Nosotros', nosotros_path %>
+	
 </p>
 <hr>
 

@@ -16,5 +16,7 @@
   <iframe width="420" height="315" src="https://www.youtube.com/embed/<%= @multimedium.video_url %>" frameborder="0" allowfullscreen></iframe>
 </p>
 
+<% if current_user.try(:admin?) %>
 <%= link_to 'Edit', edit_multimedium_path(@multimedium) %> |
+<% end %>
 <%= link_to 'Back', multimedia_path %>

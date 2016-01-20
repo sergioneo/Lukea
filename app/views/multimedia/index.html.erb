@@ -19,8 +19,10 @@
         <td><%= multimedium.titulo %></td>
         <td><iframe width="420" height="315" src="https://www.youtube.com/embed/<%= multimedium.video_url %>" frameborder="0" allowfullscreen></iframe></td>
         <td><%= link_to 'Show', multimedium %></td>
+        <% if current_user.try(:admin?) %>
         <td><%= link_to 'Edit', edit_multimedium_path(multimedium) %></td>
         <td><%= link_to 'Destroy', multimedium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +30,6 @@
 
 <br>
 
+<% if current_user.try(:admin?) %>
 <%= link_to 'New Multimedium', new_multimedium_path %>
+<% end %>

@@ -11,6 +11,9 @@ class Movie < ActiveRecord::Base
 	accepts_nested_attributes_for :comments
 
 	validates :titulo, presence: true, length: { minimum: 1 }
+	validates :image, presence: true
+	validates :id_vimeo, presence: true
+	validates :precio, presence: true
 	
 	#Buscador de películas
 	

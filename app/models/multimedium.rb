@@ -1,6 +1,8 @@
 class Multimedium < ActiveRecord::Base
   mount_uploader :imagen, MultimediaPhotoUploader
 	validate :image_size
+	validates :video_url, presence: true
+	validates :titulo, presence: true
 	
 	private
 		

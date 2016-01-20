@@ -29,6 +29,7 @@
   <strong>Contenido:</strong>
   <%= @actual.contenido.html_safe %>
 </p>
-
+<% if current_user.try(:admin?) %>
 <%= link_to 'Edit', edit_actual_path(@actual) %> |
+<% end %>
 <%= link_to 'Back', actuals_path %>
