@@ -10,6 +10,7 @@ gem 'vimeo'
 #Subida de imágenes
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'fog'
 #Valoracion de Peliculas
 gem 'ratyrate', :github => 'wazery/ratyrate'
 #Cambio de nombre
