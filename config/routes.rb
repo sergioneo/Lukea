@@ -16,6 +16,10 @@ Rails.application.routes.draw do
   delete 'movies/:id/destroy_comment', to: 'movies#destroy_comment', as: 'destroy_comment'
   get 'nosotros', to: 'welcome#nosotros', as: 'nosotros'
   get 'contacto', to: 'welcome#contacto', as: 'contacto'
+  
+  match 'users/edit/agregar_saldo' => "pay_balance#agregar_saldo", :via => :post, as: 'agregar_saldo'
+  match 'users/edit/quitar_saldo' => "pay_balance#quitar_saldo", :via => :post, as: 'quitar_saldo'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

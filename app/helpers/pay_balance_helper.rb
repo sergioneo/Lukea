@@ -1,0 +1,2 @@
+module PayBalanceHelper
+end
