@@ -30,6 +30,9 @@ class MoviesController < ApplicationController
   def show
     @comment = Comment.new
     @comments = Comment.where(movie_id: params[:id])
+    if user_signed_in?
+      @peliculas_user = UserMovie.where(user_id: current_user.id)
+    end
   end
 
   # GET /movies/new
@@ -45,6 +48,7 @@ class MoviesController < ApplicationController
   # POST /movies.json
   def create
     @movie = Movie.new(movie_params)
+    @movie.id_vimeo = @movie.id_vimeo.split('/').last
     @movie.duracion = Vimeo::Simple::Video.info(@movie.id_vimeo)[0]["duration"]
 
     respond_to do |format|
@@ -61,9 +65,11 @@ class MoviesController < ApplicationController
   # PATCH/PUT /movies/1
   # PATCH/PUT /movies/1.json
   def update
+    @movie.update(movie_params)
+    @movie.id_vimeo = @movie.id_vimeo.split('/').last
     @movie.duracion = Vimeo::Simple::Video.info(@movie.id_vimeo)[0]["duration"]
     respond_to do |format|
-      if @movie.update(movie_params)
+      if @movie.save
         format.html { redirect_to @movie, notice: 'Pelicula actualizada' }
         format.json { render :show, status: :ok, location: @movie }
       else

@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   
   match 'users/edit/agregar_saldo' => "pay_balance#agregar_saldo", :via => :post, as: 'agregar_saldo'
   match 'users/edit/quitar_saldo' => "pay_balance#quitar_saldo", :via => :post, as: 'quitar_saldo'
-
+  match 'users/edit/obtener_pelicula' => "pay_balance#obtener_pelicula", :via => :post, as: 'obtener_pelicula'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

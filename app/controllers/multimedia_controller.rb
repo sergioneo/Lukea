@@ -42,7 +42,9 @@ class MultimediaController < ApplicationController
   # PATCH/PUT /multimedia/1.json
   def update
     respond_to do |format|
-      if @multimedium.update(multimedium_params)
+      @multimedium.update(multimedium_params)
+      @multimedium.video_url = @multimedium.video_url.split('=').last
+      if @multimedium.save
         format.html { redirect_to @multimedium, notice: 'Multimedium was successfully updated.' }
         format.json { render :show, status: :ok, location: @multimedium }
       else

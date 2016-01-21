@@ -8,7 +8,9 @@
 </head>
 <body>
   <% if user_signed_in?%>
+    <% if current_user.foto_url %>
     <%= image_tag(current_user.foto_url,size: "20x20" , :alt => "Foto Usuario") %>
+    <% end %>
     <%= current_user.nombre %>
     <li>Saldo: <%= current_user.saldo %></li>
     <%= link_to 'Cerrar Sesion', destroy_user_session_path, method: :delete %> | <%= link_to 'Preferencias', edit_user_registration_path, method: :get %>
