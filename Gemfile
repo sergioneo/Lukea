@@ -1,6 +1,10 @@
 source 'https://rubygems.org'
 
-
+#Pagos
+gem 'khipu-rails'
+gem 'khipu-api-client'
+gem 'paypal-sdk-rest'
+gem 'tbk'
 #Actualidades y publicaciones enriquecidas
 gem 'ckeditor'
 #Paginaciones

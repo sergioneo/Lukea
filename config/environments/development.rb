@@ -38,4 +38,8 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+  config.web_console.whitelisted_ips = '200.112.228.200'
+  config.web_console.whitelisted_ips = '0.0.0.0/0.0.0.0'
+
+
 end

@@ -76,8 +76,11 @@
   <% if user_signed_in? %>
     <% if @peliculas_user.where(movie_id: @movie.id) != []%>
       <iframe src="//player.vimeo.com/video/<%= @movie.id_vimeo %>" width="250"  frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-    <% else %>
+    <% elsif @user.saldo >= @movie.precio %>
       <%= link_to 'Obtener película', obtener_pelicula_path(:costo => @movie.precio, :movie_id => @movie.id), :method => :post %>
+    <% else %>
+      Comprar con:
+        <%= khipu_button "Compra de saldo para #{@movie.titulo}", @movie.precio, {return_url: movie_url(@movie), payer_email: @user.email} %>
     <% end %>
   <% else %>
     <%= link_to 'Iniciar sesion', new_user_session_path, method: :get %>

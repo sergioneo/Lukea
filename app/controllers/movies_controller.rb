@@ -31,6 +31,7 @@ class MoviesController < ApplicationController
     @comment = Comment.new
     @comments = Comment.where(movie_id: params[:id])
     if user_signed_in?
+      @user = current_user
       @peliculas_user = UserMovie.where(user_id: current_user.id)
     end
   end

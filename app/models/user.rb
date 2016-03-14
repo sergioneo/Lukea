@@ -21,6 +21,6 @@ class User < ActiveRecord::Base
   ratyrate_rater
   validates :saldo, :numericality => { :greater_than_or_equal_to => 0 }
   validates :email, presence: true
-  validates :password, presence: true
+  validates :encrypted_password, presence: true
   
 end
