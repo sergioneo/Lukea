@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   resources :actuals
   post '/rate' => 'rater#create', :as => 'rate'
-  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
+  devise_for :users, :controllers => { :omniauth_callbacks => "callbacks", registrations: 'registrations'}
 
   resources :movies
   resources :categories

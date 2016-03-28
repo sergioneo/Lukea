@@ -76,6 +76,13 @@ GEM
       execjs
     coffee-script-source (1.10.0)
     concurrent-ruby (1.0.0)
+    countries (1.2.5)
+      currencies (~> 0.4.2)
+      i18n_data (~> 0.7.0)
+    country_select (2.5.2)
+      countries (~> 1.2.0)
+      sort_alphabetical (~> 1.0)
+    currencies (0.4.2)
     debug_inspector (0.0.2)
     devise (3.5.2)
       bcrypt (~> 3.0)
@@ -212,6 +219,7 @@ GEM
       multi_xml (>= 0.5.2)
     httpclient (2.7.1)
     i18n (0.7.0)
+    i18n_data (0.7.0)
     inflecto (0.0.2)
     ipaddress (0.8.2)
     jbuilder (2.3.2)
@@ -236,6 +244,7 @@ GEM
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
     mime-types (2.99)
+    mimemagic (0.3.0)
     mini_magick (4.3.6)
     mini_portile2 (2.0.0)
     minitest (5.8.3)
@@ -266,6 +275,12 @@ GEM
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
     orm_adapter (0.5.0)
+    paperclip (4.3.6)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      cocaine (~> 0.5.5)
+      mime-types
+      mimemagic (= 0.3.0)
     paypal-sdk-rest (1.4.1)
       multi_json (~> 1.0)
       uuidtools (~> 2.1)
@@ -325,6 +340,8 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    sort_alphabetical (1.0.2)
+      unicode_utils (>= 1.2.2)
     spring (1.6.1)
     sprockets (3.5.2)
       concurrent-ruby (~> 1.0)
@@ -347,6 +364,7 @@ GEM
     uglifier (2.7.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    unicode_utils (1.4.0)
     uuidtools (2.1.5)
     vimeo (1.5.4)
       httparty (>= 0.4.5)
@@ -373,6 +391,7 @@ DEPENDENCIES
   carrierwave
   ckeditor
   coffee-rails (~> 4.1.0)
+  country_select
   devise
   fog
   jbuilder (~> 2.0)
@@ -383,6 +402,7 @@ DEPENDENCIES
   omniauth
   omniauth-facebook
   omniauth-google-oauth2
+  paperclip
   paypal-sdk-rest
   pg (~> 0.15)
   puma

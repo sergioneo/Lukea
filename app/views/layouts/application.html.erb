@@ -2,38 +2,100 @@
 <html>
 <head>
   <title>lukeaTV</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <!--<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>-->
+  
+  <!-- FONTS -->
+  <%= stylesheet_link_tag "fontfaces.css" %>
+  
+  <!-- IMPORTING THEME -->
+  <%= stylesheet_link_tag "lukea-theme.css" %>
+  
+  <!-- JQUERY -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+	
+	<!-- MOVIE SLIDER -->
+	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.5.9/slick.css"/>
+	<link rel="stylesheet" type="text/css" href="http://kenwheeler.github.io/slick/slick/slick-theme.css"/>
+	<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.5.9/slick.min.js"></script>
+  
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'Lukea.js', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <% if user_signed_in?%>
-    <% if current_user.foto_url %>
-    <%= image_tag(current_user.foto_url,size: "20x20" , :alt => "Foto Usuario") %>
-    <% end %>
-    <%= current_user.nombre %>
-    <li>Saldo: <%= current_user.saldo %></li>
-    <%= link_to 'Cerrar Sesion', destroy_user_session_path, method: :delete %> | <%= link_to 'Preferencias', edit_user_registration_path, method: :get %>
-  <% else %>
-    <%= link_to 'Iniciar sesion', new_user_session_path, method: :get %>
-  <% end %>
-<hr>
-  <p>
-  <%= link_to 'Inicio', root_path %>
-	<%= link_to 'Peliculas', movies_path %> | 
-	<%= link_to 'Categorias', categories_path %> 
-	<%= link_to 'Mas Recientes', movies_path %>
-	<%= link_to 'Mas Valorados', movies_path(:valoracion => true) %>
-	<%= link_to 'Mas Comentados', movies_path(:n_comentarios => true) %> | 
-	<%= link_to 'Actualidades', actuals_path %>
-	<%= link_to 'Multimedia', multimedia_path %>
-	<%= link_to 'Contacto', contacto_path %>
-	<%= link_to 'Nosotros', nosotros_path %>
-	
-</p>
-<hr>
+  
+  <div class = 'popup-overlay'></div>
+  <%= render "popups/loadPopups" %>
+  
+  <div class = 'site'>
+    <div class = 'navbar'>
+      <%= image_tag "logos/logo-lukea-header.png", class: 'logo' %>
+			<div class = 'navbar-content'>
+				<ul>
+					<li class = 'actual'>Inicio</li>
+					<li>Nosotros</li>
+					<li>Películas</li>
+					<li>Contacto</li>
+				</ul>
+				<div class = 'search'>
+					<input name = 'search' placeholder = 'Buscar película, director, actor' />
+					<img class = 'searchbutton' src = '<%= image_path("botones/btn-search.png") %>' />
+				</div>
+        <% if user_signed_in?%>
+          <div class = 'perfil-short dropdown-opener'>
+  					<%= image_tag current_user.avatar, class:"avatar" %>
+						<div class = 'texto'>
+							¡Hola!</br>
+							<b><%= current_user.nombre %></b>
+						</div>
+						<img src = '<%= image_path("botones/btn-scroll_header.png") %>' class = 'dropdown'/>
+						<div class = 'dropdown-box'>
+							<ul class = 'dropdown-menu'>
+							  <%= link_to(edit_user_registration_path) do %>
+								  <li>Ver mi perfil</li>
+								<% end %>
+								<%= link_to(destroy_user_session_path) do %>
+								  <li>Cerrar sesión</li>
+								<% end %>
+							</ul>
+						</div>
+					</div>
+        <% else %>
+          <div class = 'btn btn-little login-btn popup-btn' popup-target = 'loginPopup'>Iniciar sesión</div>
+        <% end %>
+			</div>
+			<div class = 'clear'></div>
+		</div>
 
   <%= yield %>
 
+    <div class = 'footer'>
+  		<div id = 'seccion1'>
+  		  <%= image_tag 'logos/logo-lukea-footer.png', class:"logo" %>
+  			<ul class = 'menu'>
+  				<li>Inicio</li>
+  				<li>Nosotros</li>
+  				<li>Películas</li>
+  				<li>Contacto</li>
+  			</ul>
+  		</div>
+  		<div id = 'seccion2'>
+  			Síguenos</br>
+  			<%= image_tag 'rrss/btn-facebook.png', class:"social" %>
+  			<%= image_tag 'rrss/btn-twitter.png', class:"social" %>
+  			<%= image_tag 'rrss/btn-instagram.png', class:"social" %>
+  		</div>
+  		<!--
+  		<div id = 'seccion3'>
+  			<h1>newsletter</h1>
+  			<h2>suscríbete y mantente informado</h2>
+  			<div class = 'suscribe'>
+  				<input name = 'email' placeholder = 'Email o correo electrónico' />
+  				<img class = 'suscribebutton' src = 'assets/img/botones/btn-search.png' />
+  			</div>
+  		</div>-->
+  	</div>
+
+  </div>
 </body>
 </html>

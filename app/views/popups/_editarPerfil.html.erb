@@ -1,0 +1,40 @@
+
+<div class = 'popup' id = 'editarPerfilPopup' style = 'width: 550px; margin-left: -225px;'>
+	<div class = 'titulo'>editar perfil</div>
+	<%= form_for(resource, as: resource_name, url: registration_path(resource_name), multipart: true, html: { method: :put , :class=> "extended", } ) do |f| %>
+		<div class = 'col1' id = 'inputFoto-btn'>
+			<%= image_tag current_user.avatar, class:"fotoperfil" %>
+			cambiar foto de perfil <%= image_tag 'botones/btn-cambiarfoto.png', style:"vertical-align: -4px;" %>
+		</div>
+		<%= f.file_field :avatar, style: "display: none;", value: current_user.avatar, id:"inputFoto"%>
+		<div class = 'col2'>
+			<label>Nombre</label>
+			<div class = 'awesome-lukea-input'>
+				 <%= f.text_field :nombre %>
+			</div>
+			<label>Correo Electrónico</label>
+			<div class = 'awesome-lukea-input'>
+			  <%= f.email_field :email %>
+			</div>
+			<label>Contraseña</label>
+			<div class = 'awesome-lukea-input'>
+			 <%= f.password_field :password, placeholder: "Escriba su nueva contraseña aquí" %>
+			</div>
+			<label>Confirmar Contraseña</label>
+			<div class = 'awesome-lukea-input'>
+				 <%= f.password_field :password_confirmation, placeholder: "Repita su nueva contraseña aquí" %>
+			</div>
+			<label>Sexo</label>
+			<div class = 'awesome-lukea-input select'>
+			  <%= select_tag("user[genero]", options_for_select([['Masculino', 'M'], ['Femenino', 'F']], current_user.genero)) %>
+			</div>
+			<label>País</label>
+			<div class = 'awesome-lukea-input select'>
+				<%= country_select("user", "pais", priority_countries: ["CL"], selected: current_user.pais) %>
+			</div>
+			
+		</div>
+		<div class = 'clear'></div>
+		<button type = 'button' class = "btn btn-cancelar-flat">Cancelar</button><button class = "btn btn-login-flat">guardar cambios</button>
+	<% end %>
+</div>

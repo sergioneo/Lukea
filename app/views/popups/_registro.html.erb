@@ -1,0 +1,31 @@
+<div class = 'popup' id = 'registroPopup'>
+    <%= image_tag 'logos/logo-lukea-header.png', class:"logo" %>
+	<div class = 'titulo'>crea tu cuenta</div>
+	<%= form_for(:user, as: :user, url: registration_path(:user)) do |f| %>
+		<label>Nombre</label>
+		<div class = 'awesome-lukea-input'>
+			<%= f.text_field :nombre%>
+		</div>
+		<label>Correo Electrónico</label>
+		<div class = 'awesome-lukea-input'>
+			<%= f.email_field :email, autofocus: true %>
+		</div>
+		<label>Contraseña</label>
+		<div class = 'awesome-lukea-input'>
+			 <%= f.password_field :password, autocomplete: "off" %>
+		</div>
+		<label>Confirmar Contraseña</label>
+		<div class = 'awesome-lukea-input'>
+			<%= f.password_field :password_confirmation, autocomplete: "off" %>
+		</div>
+		<label>Sexo</label>
+		<div class = 'awesome-lukea-input select'>
+		    <%= select_tag("user[genero]", options_for_select([['Masculino', 'M'], ['Femenino', 'F']])) %>
+		</div>
+		<label>País</label>
+		<div class = 'awesome-lukea-input select'>
+			<%= country_select("user", "pais", priority_countries: ["CL"]) %>
+		</div>
+		<button class = "btn btn-register">Registrarme</button>
+	<% end %>
+</div>

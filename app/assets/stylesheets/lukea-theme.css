@@ -1,0 +1,1784 @@
+/* BLACK TIE */
+/* LUKEA THEME */
+
+/* 0. Utilities */
+
+	html, div, body {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		font-family: Lato;
+		font-weight: 400;
+	}
+
+	html {
+		width: 100%;
+		height: 100%;
+	}
+
+	.clear {
+		clear: both;
+	}
+	
+	a {
+		color: rgb(85, 162, 238);
+		text-decoration: none;
+	}
+	
+	button {
+		border: none;
+	}
+
+/* 1. Background and layout settings */
+
+	html {
+		background-color: rgb(0,0,0);
+		color: white;
+	}
+
+	.site {
+		width: 100%;
+	}
+
+	.content {
+		width: 1000px;
+		margin: 0px auto;
+		padding-top: 60px;
+	}
+
+	.full-width.content.content-slider {
+		height: 600px;
+	}
+	
+	.full-width.content {
+		width: 100%;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center center;
+		margin: 0px auto;
+		padding-top: 10px;
+	}
+	
+	.content.gray-background {
+		background-color: rgb(41,41,41);
+	}
+	
+	.message-center {
+		width: 100%;
+		text-align: center;
+		font-family: Montserrat;
+		font-weight: bold;
+		font-size: 14px;
+		color: rgb(220,220,220);
+		font-style: italic;
+		margin: 40px auto;
+	}
+	
+	.content .section {
+		width: 750px;
+		margin: 0px auto;
+	}
+	
+	.columned-text {
+		width: 100%;
+		-webkit-column-count: 2; /* Chrome, Safari, Opera */
+		-moz-column-count: 2; /* Firefox */
+		column-count: 2;
+		padding-bottom: 30px;
+	}
+
+/* 2. Header and footer */
+
+	.navbar {
+		width: 1000px;
+		margin: 0px auto;
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+
+	.navbar .logo {
+		float: left;
+		height: 50px;
+	}
+
+	.navbar .navbar-content {
+		float: right;
+		height: 50px;
+	}
+
+	.navbar .navbar-content ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: inline-block;
+		margin: 8px 0;
+	}
+
+	.navbar .navbar-content ul li {
+		display: inline-block;
+		margin: 0px 5px;
+		padding: 9px;
+		color: white;
+		font-size: 12px;
+		text-transform: uppercase;
+		line-height: 12px;
+		text-align: center;
+		font-weight: 400;
+		vertical-align: top;
+		border-bottom: 3px solid transparent;
+		cursor: pointer;
+		transition: border-color 0.3s;
+	}
+
+	.navbar .navbar-content ul li.actual {
+		border-bottom: 3px solid rgb(72, 47, 151);
+		font-weight: bold;
+	}
+
+	.navbar .navbar-content ul li:hover {
+		border-bottom: 3px solid rgba(72, 47, 151, 0.7);
+	}
+
+	.navbar .navbar-content .search {
+		margin-left: 30px;
+		margin-right: 20px;
+		font-size: 0;
+		display: inline-block;
+		vertical-align: top;
+		margin: 8px 0;
+		margin-left: 23px;
+	}
+
+	.navbar .navbar-content .search input {
+		padding: 0px 20px;
+		line-height: 33px;
+		font-size: 12px;
+		border: none;
+		font-style: italic;
+		background-color: rgb(200,200,200);
+		color: rgb(75,75,75);
+		width: 180px;
+	}
+
+	.navbar .navbar-content .search .searchbutton {
+		height: 33px;
+		vertical-align: top;
+		cursor: pointer;
+	}
+
+	.navbar .navbar-content .login-btn {
+		vertical-align: top;
+		margin: 8px 0px;
+		margin-left: 19px;
+	}
+	
+	.navbar .navbar-content .perfil-short {
+		display: inline-block;
+		height: 33px;
+		cursor: pointer;
+		margin-left: 20px;
+		position: relative;
+	}
+	
+	.navbar .navbar-content .perfil-short .avatar {
+		max-height: 100%;
+		vertical-align: top;
+	}
+	
+	.navbar .navbar-content .perfil-short .texto{
+		display: inline-block;
+		vertical-align: top;
+		height: 100%;
+		line-height: 16px;
+		font-size: 14px;
+		margin-left: 6px;
+		margin-right: 15px;
+	}
+	
+	.navbar .navbar-content .perfil-short .dropdown {
+		vertical-align: middle;
+		vertical-align: -webkit-baseline-middle;
+	}
+	
+	.navbar .navbar-content .perfil-short .dropdown-box {
+		position: absolute;
+		width: 100%;
+		top: 50px;
+		left: 0;
+		display: none;
+	}
+	
+	.navbar .navbar-content .perfil-short .dropdown-box .dropdown-menu {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		width: 100%;
+	}
+	
+	.navbar .navbar-content .perfil-short .dropdown-box .dropdown-menu li {
+		display: block;
+		width: 100%;
+		padding: 0 10px;
+		margin: 0;
+		line-height: 33px;
+		font-size: 13px;
+		color: white;
+		border: 1px solid white;
+		border-bottom: 0;
+		background-color: black;
+		z-index: 1000;
+		text-transform: none;
+		text-align: left;
+		box-sizing: border-box;
+		transition: background-color 0.3s;
+	}
+	.navbar .navbar-content .perfil-short .dropdown-box .dropdown-menu a:last-child li{
+		border-bottom: 1px solid white;
+	}
+	
+	.navbar .navbar-content .perfil-short .dropdown-box .dropdown-menu li:hover {
+		background-color: rgb(72, 47, 151);
+	}
+
+	.footer {
+		width: 1000px;
+		margin: 0px auto;
+		padding-top: 15px;
+		padding-bottom: 20px;
+		margin-bottom: 20px;
+		border-top: 1px solid rgb(72, 47, 151);
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+
+	.footer #seccion1 {
+		width: 480px;
+		border-right: 1px solid white;
+		height: 84px;
+		padding: 17px 0px;
+		display: inline-block;
+		vertical-align: top;
+		padding-right: 25px;
+	}
+
+	.footer #seccion1 .logo {
+		float: left;
+		height: 50px;
+	}
+
+	.footer #seccion1 .menu {
+		float: right;
+		list-style: none;
+		padding: 0;
+		margin: 20px 0px;
+	}
+
+	.footer #seccion1 .menu li {
+		font-size: 10px;
+		color: white;
+		display: inline-block;
+		vertical-align: top;
+		border-right: 1px solid white;
+		padding: 0px 10px;
+		text-transform: uppercase;
+	}
+
+	.footer #seccion1 .menu li:last-child {
+		border-right: 0;
+	}
+
+	.footer #seccion2, .footer #seccion3 {
+		height: 84px;
+		display: inline-block;
+		vertical-align: top;
+		text-transform: uppercase;
+		font-family: Montserrat;
+	}
+
+	.footer #seccion2 {
+		width: 190px;
+		border-right: 1px solid white;
+		font-size: 20px;
+		font-weight: bold;
+		text-align: center;
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+
+	.footer #seccion2 .social {
+		margin: 20px 5px;
+		height: 32px;
+		cursor: pointer;
+	}
+
+	.footer #seccion3 {
+		width: 300px;
+		padding-left: 20px;
+		text-align: left;
+	}
+
+	.footer #seccion3 h1{
+		font-size: 20px;
+		margin: 0;
+		margin-bottom: 6px;
+	}
+
+	.footer #seccion3 h2{
+		font-size: 13px;
+		margin: 0;
+		margin-bottom: 6px;
+		font-weight: 400;
+	}
+
+	.footer #seccion3 .suscribe {
+		font-size: 0;
+		display: inline-block;
+		vertical-align: top;
+	}
+
+	.footer #seccion3 .suscribe input {
+		padding: 0px 10px;
+		line-height: 25px;
+		font-size: 14px;
+		border: none;
+		font-style: italic;
+		background-color: rgb(200,200,200);
+		color: rgb(75,75,75);
+		width: 198px;
+	}
+
+	.footer #seccion3 .suscribe .suscribebutton {
+		height: 25px;
+		vertical-align: top;
+		cursor: pointer;
+	}
+
+
+/* 3. Buttons */
+
+	.btn {
+		cursor: pointer;
+		display: inline-block;
+		text-transform: uppercase;
+		font-weight: bold;
+		color: white;
+		font-family: Montserrat;
+		font-style: normal;
+		text-align: center;
+	}
+
+	.btn-little {
+		font-size: 10px;
+		padding: 5px 20px;
+		line-height: 22px;
+		background-color: rgb(78,45,152);
+	}
+	
+	.btn-big {
+		font-size: 13px;
+		padding: 8px auto;
+		line-height: 40px;
+		background-color: rgb(78,45,152);
+		width: 270px;
+		margin: 20px auto;
+	}
+	
+	.btn-register, .btn-login-normal {
+		font-size: 13px;
+		padding: 8px 0px;
+		line-height: 40px;
+		background-color: rgb(78,45,152);
+		width: 190px;
+		margin: 15px auto;
+		border: none;
+	}
+	
+	.btn-login-flat {
+		font-size: 13px;
+		padding: 8px 0px;
+		line-height: 20px;
+		background-color: rgb(78,45,152);
+		width: 210px;
+		margin: 15px auto;
+		border: none;
+	}
+	
+	.btn-cancelar-flat {
+		font-size: 13px;
+		padding: 8px 0px;
+		line-height: 20px;
+		background-color: rgb(40,40,40);
+		width: 210px;
+		margin: 15px auto;
+		border: none;
+		margin-right: 20px;
+		margin-top: 30px;
+	}
+	
+	.editdatos-btn {
+		position: absolute;
+		left: 100%;
+	}
+	
+	.popup-btn {
+		cursor: pointer;
+	}
+	
+	.pagar-btn {
+		cursor: pointer;
+		margin-bottom: 10px;
+	}
+
+
+/* 4. Titles and headlines */
+
+	.content h1.headline {
+		font-family: Lato;
+		font-size: 23px;
+		text-align: center;
+		color: white;
+		text-transform: uppercase;
+		margin-bottom: 40px;
+	}
+	
+	.content h1.headline.with-line {
+		position: relative;
+	}
+	
+	.content h1.headline.with-line:after {
+		width: 20%;
+		height: 2px;
+		background-color: rgb(72, 47, 151);
+		content : "";
+		display: block;
+		position: absolute;
+		right: 10%;
+		top: calc(50% - 1px);
+	}
+	
+	.content h1.headline.with-line:before {
+		width: 20%;
+		height: 2px;
+		background-color: rgb(72, 47, 151);
+		content : "";
+		display: block;
+		position: absolute;
+		left: 10%;
+		top: calc(50% - 1px);
+	}
+	
+	.content h1.big-title {
+		font-family: Montserrat;
+		font-weight: bold;
+		font-size: 30px;
+		text-align: center;
+		color: white;
+		text-transform: uppercase;
+		margin-bottom: 20px;
+	}
+	
+	.content h2.subtitulo {
+		font-family: Lato;
+		font-size: 16px;
+		color: rgb(217,217,217);
+		margin-top: 0px;
+		margin-bottom: 40px;
+		font-style: italic;
+		width: 100%;
+		text-align: center;
+		font-weight: 400;
+	}
+	
+	.content .subseccion {
+		position: relative;
+		font-family: Montserrat;
+		font-weight: bold;
+		font-size: 20px;
+		text-align: center;
+		color: white;
+		text-transform: uppercase;
+		margin: 20px auto;
+		display: table;
+		padding: 10px 15px;
+	}
+	
+	.content .subseccion.underlined:after {
+		width: 70%;
+		content: "";
+		display: block;
+		position: absolute;
+		top: 100%;
+		background-color: rgb(72, 47, 151);
+		height: 2px;
+		left: 15%;
+	}
+	
+	.popup .titulo {
+		font-family: Montserrat;
+		font-size: 22px;
+		color: rgb(217,217,217);
+		text-transform: uppercase;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		font-weight: bold;
+	}
+	
+	.popup .subtitulo {
+		font-family: Lato;
+		font-size: 13px;
+		color: rgb(217,217,217);
+		margin-top: 0px;
+		margin-bottom: 20px;
+		font-style: italic;
+	}
+	
+	.popup .indicacion {
+		font-family: Lato;
+		font-size: 13px;
+		color: rgb(217,217,217);
+		margin-top: 0;
+		margin-bottom: 20px;
+	}
+	
+	.popup .indicacion a {
+		text-decoration: none;
+	}
+	
+	.abonado .totalAbonado {
+		font-size: 20px;
+		text-transform: uppercase;
+		margin-top: 30px;
+		font-style: normal;
+	}
+	
+	.total-abonado {
+		font-size: 14px;
+		text-transform: uppercase;
+		margin-bottom: 40px;
+	}
+	
+	.total-abonado .total {
+		font-family: Montserrat;
+		font-weight: bold;
+		font-size: 55px;
+		margin-top: 7px;
+	}
+	
+	.abonado .totalAbonado .montoTotal {
+		font-size: 35px;
+		font-weight: bold;
+		display: block;
+		margin-top: 10px;
+		font-family: Montserrat;
+	}
+	
+	.title-corner {
+		font-family: Montserrat;
+		font-weight: bold;
+		font-size: 24px;
+		color: white;
+		text-transform: uppercase;
+		margin-bottom: 20px;
+	}
+	
+/* 5. Sliders */
+
+	/* 5.1 Movie Slider */
+	
+		.movies-slider-theater {
+			background-color:  rgb(72, 47, 151);
+			height: 80px;
+			margin: 0px auto;
+			width: 629px;
+		}
+		
+		.movies-slider-theater.top {
+			margin-top: 40px;
+			text-align: center;
+		}
+		
+		.movies-slider-theater.top ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+		
+		.movies-slider-theater.top ul li {
+			padding: 0;
+			margin-top: 28px;
+			margin-right: 10px;
+			margin-left: 10px;
+			margin-bottom: 16px;
+			display: inline-block;
+			vertical-align: top;
+			text-transform: uppercase;
+			font-size: 14px;
+			font-weight: 400;
+			cursor: pointer;
+		}
+		
+		.movies-slider-theater.top ul li.active {
+			font-weight: bold;
+		}
+		
+		.movies-slider-theater.top ul li hr {
+			width: 75px;
+			margin: 8px auto;
+			border-bottom: 1px solid transparent;
+			transition: border-color 0.6s;
+		}
+		
+		.movies-slider-theater.top ul li hr {
+			border-color: transparent;
+		}
+		
+		.movies-slider-theater.top ul li.active hr {
+			border-color: black;
+		}
+		
+		.movies-slider-theater.bottom {
+			margin-bottom: 40px;
+		}
+		
+		.movie-sliders {
+			height: 230px;
+			width: 100%;
+		}
+		
+		.movies-slider:not(.active) {
+			display: none;
+		}
+	
+		.movies-slider {
+			width: 900px;
+			margin: 0px auto !important;
+			display: none;
+		}
+	
+		.movie-slide {
+			width: 300px;
+			height: 230px;
+			background-size: cover;
+			position: relative;
+			display: inline-block;
+			vertical-align: top;
+		}
+		
+		.movie-slide .titulo {
+			position: absolute;
+			width: 180px;
+			bottom: 34px;
+			color: white;
+			font-family: Lato;
+			font-weight: bold;
+			left: 10px;
+			height: 22px;
+			font-size: 12px;
+			line-height: 22px;
+			padding-left: 4px;
+			background-color: rgb(72, 47, 151);
+		}
+		
+		.movie-slide .info {
+			position: absolute;
+			padding-left: 4px;
+			padding-right: 4px;
+			width: 280px;
+			bottom: 19px;
+			height: 15px;
+			font-size: 12px;
+			left: 10px;
+			background-color: rgba(0,0,0,0.5);
+			color: white;
+			font-family: Lato;
+			line-height: 15px;
+		}
+		
+		.movie-slide .info .valor{
+			float: right;
+			font-weight: bold;
+			font-family: Montserrat;
+			line-height: 15px;
+		}
+		
+		.movie-slide .rating {
+			position: absolute;
+			width: 100px;
+			right: 7px;
+			bottom: 34px;
+			text-align: right;
+			padding-top: 4px;
+			height: 22px;
+			font-size: 0;
+		}
+		
+		.movie-slide .rating img{
+			vertical-align: top;
+			display: inline-block;
+		}
+
+/* 6. Categories */
+
+	.categorias {
+		width: 760px;
+		margin: 20px auto;
+		text-align: justify;
+	}
+	
+	.categoria {
+		display: block;
+		height: 150px !important;
+		min-height: 150px;
+		width: 150px;
+		background-size: cover;
+		position: relative;
+		text-align: center;
+		line-height: 150px;
+		z-index: 1;
+		margin: 20px 20px;
+		float: left;
+		cursor: pointer;
+	}
+	
+	.categoria:after {
+		content: ' ';
+		position: absolute;
+		left: 0;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		background-color: rgba(0,0,0,.5);
+		z-index:-1;
+	}
+	
+	.categoria .icon {
+		max-height: 65px;
+		z-index: 2;
+		vertical-align: middle;
+		display: inline-block !important;
+	}
+	
+	.categoria .icon.little {
+		max-height: 45px;
+	}
+	
+	.categoria .titulo {
+		position: absolute;
+		bottom: 10px;
+		color: white;
+		line-height: normal;
+		font-size: 16px;
+		width: 100%;
+		text-align: center;
+		text-transform: uppercase;
+	}
+	
+/* 7. Popups */
+
+	.popup-overlay {
+		width: 100%;
+		height: 100%;
+		position: fixed;
+		top: 0;
+		left: 0;
+		background-color: rgba(0,0,0,0.5);
+		z-index: 999;
+		display: none;
+	}
+	
+	.popup {
+		width: 480px;
+		background-color: black;
+		border: 1px solid rgb(39,39,39);
+		border-radius: 2px;
+		-moz-border-radius: 2px;
+		-webkit-border-radius: 2px;
+		z-index: 1000;
+		position: absolute;
+		margin-left: -240px;
+		left: 50%;
+		top: 100px;
+		padding: 15px;
+		text-align: center;
+		display: none;
+	}
+	
+	.popup .logo {
+		height: 50px;
+	}
+	
+	.popup form {
+		width: 60%;
+		margin: 0px auto;
+	}
+	
+	.popup form.extended {
+		width: 90%;
+	}
+	
+	.popup form label, .perfil .informacion label{
+		font-family: Montserrat;
+		font-weight: bold;
+		font-size: 10px;
+		width: 100%;
+		text-align: left;
+		margin-top: 15px;
+		margin-bottom: 5px;
+		color: white;
+		text-transform: uppercase;
+		display: block;
+		color: rgb(217,217,217);
+	}
+	
+	.popup form img.social-login {
+		width: 268px;
+		margin-bottom: 20px;
+	}
+	
+	.popup .col1, .popup .col2 {
+		float: left;
+	}
+	
+	.popup .col1 {
+		margin-right: 5%;
+		width: 44%;
+		font-family: Montserrat;
+		font-weight: bold;
+		font-size: 12px;
+		text-align: center;
+		color: white;
+		text-transform: uppercase;
+	}
+	
+	.popup .col2 label:first-child {
+		margin-top: 0;
+	}
+	
+	.popup .col2 {
+		width: 50%;
+	}
+	
+	.popup .col1 img.fotoperfil {
+		max-width: 100%;
+		display: block;
+		margin: 0 auto;
+		margin-bottom: 10px;
+	}
+	
+	
+	
+	
+/* 8. Inputs */
+
+	.awesome-lukea-input {
+		width: 100%;
+		box-sizing: border-box;
+		border: 2px solid transparent;
+		position: relative;
+		margin: 0px auto;
+	}
+	
+	.awesome-lukea-input.inline {
+		display: inline-block;
+	}
+	
+	.awesome-lukea-input.standalone {
+		margin-bottom: 20px;
+	}
+	
+	.awesome-lukea-input.standalone input {
+		font-style: italic;
+		font-size: 12px;
+	}
+	
+	.awesome-lukea-input:after {
+		content: "";
+		background-color: rgb(73,45,145);
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		height: 10px;
+		width: 2px;
+		z-index: 100;
+	}
+	
+	.awesome-lukea-input:before {
+		content: "";
+		background-color: rgb(73,45,145);
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		height: 2px;
+		width: 100%;
+		z-index: 100;
+	}
+	
+	.awesome-lukea-input input {
+		padding: 0px 10px;
+		line-height: 33px;
+		border: none;
+		color: rgb(75,75,75);
+		font-family: Lato;
+		font-size: 14px;
+		position: relative;
+		width: 100%;
+		box-sizing: border-box;
+	}
+	.awesome-lukea-input textarea, .awesome-lukea-input input { outline: none; }
+	
+	.awesome-lukea-input.darktheme textarea, .awesome-lukea-input.darktheme input {
+		background-color: rgb(41,41,41);
+		color: white;
+	}
+	
+	.awesome-lukea-input .select-block {
+		width: 100%;
+		padding: 0px 10px;
+		line-height: 33px;
+		color: rgb(75,75,75);
+		font-family: Lato;
+		font-size: 14px;
+		background-color: white;
+		text-align: left;
+		text-transform: uppercase;
+		cursor: default;
+	}
+	
+	.awesome-lukea-input .select-block:after {
+		width: 20px;
+		height: 100%;
+		content: "";
+		background-image: url("../img/botones/btn_scroll.png");
+		background-position: center center;
+		background-repeat: no-repeat;
+		cursor: default;
+		display: block;
+		position: absolute;
+		right: 10px;
+		top: 0;
+	}
+	
+	.awesome-lukea-input .select-block .select-dropdown {
+		width: 100%;
+		position: absolute;
+		z-index: 120;
+		left: 0;
+		top: calc(100% - 2px);
+		display: none;
+		max-height: 120px;
+		overflow-y: auto;
+	}
+	
+	.awesome-lukea-input .select-block .select-dropdown .select-option {
+		background-color: white;
+		width: 100%;
+		line-height: 22px;
+		color: rgb(75,75,75);
+		font-family: Lato;
+		font-size: 12px;
+		background-color: white;
+		text-align: left;
+		text-transform: uppercase;
+		box-sizing: border-box;
+		padding: 0px 10px;
+		cursor: default;
+		
+	}
+	
+	.awesome-lukea-input .select-block .select-dropdown .select-option:hover {
+		color: white;
+		background-color: rgb(73,45,145);
+	}
+	
+	.awesome-lukea-input textarea {
+		min-height: 100px;
+		padding: 0px 10px;
+		line-height: 33px;
+		border: none;
+		color: rgb(75,75,75);
+		font-family: Lato;
+		font-size: 14px;
+		position: relative;
+		width: 100%;
+		box-sizing: border-box;
+		max-width: 100%;
+	}
+	
+	.input-row {
+		width: 100%;
+	}
+	
+	.input-col-1_2 {
+		width: 48%;
+		float: left;
+		margin-left: 4%;
+	}
+	
+	.input-col-1_2:first-child {
+		margin-left: 0;
+	}
+
+	
+/* 9. Mi Perfil */
+
+	.perfil {
+		width: 75%;
+		margin: 0px auto;
+		margin-bottom: 40px;
+	}
+	
+	.perfil .avatar {
+		width: 154px;
+		margin-right: 20px;
+		display: inline-block;
+		vertical-align: top;
+	}
+	
+	.perfil .avatar .titulo {
+		font-family: Lato;
+		font-style: italic;
+		font-size: 13px;
+		text-align: center;
+		margin-bottom: 4px;
+	}
+	
+	.perfil .avatar img {
+		max-width: 100%;
+	}
+	
+	.perfil .informacion {
+		width: 560px;
+		display: inline-block;
+		vertical-align: top;
+	}
+	
+	.perfil .informacion .col1 {
+		float: left;
+		margin-right: 10px;
+		width: calc(50% - 10px);
+	}
+	
+	.perfil .informacion .col2 {
+		float: left;
+		width: calc(50% - 10px);
+	}
+	
+	.perfil .informacion .fake-input {
+		width: 100%;
+		background-color: rgb(41,41,41);
+		color: white;
+		padding: 0px 15px;
+		line-height: 33px;
+		border: none;
+		font-family: Lato;
+		font-size: 14px;
+		box-sizing: border-box;
+		font-style: italic;
+	}
+	
+	.perfil .informacion label:first-child {
+		margin-top: 0;
+	}
+	
+	.abonado {
+		width: 400px;
+		float: left;
+		color: white;
+		margin-top: 30px;
+		margin-bottom: 30px;
+		font-style: italic;
+		font-size: 14px;
+		font-family: Lato;
+	}
+	
+	.mediosPago {
+		width: 200px;
+		float: right;
+		margin-right: 100px;
+		margin-top: 30px;
+		margin-bottom: 30px;
+	}
+	
+	.mediosPago img {
+		cursor: pointer;
+		margin-bottom: 10px;
+		display: block;
+		max-width: 100%;
+	}
+	
+/* 10. Movies */
+
+	/* 11. Varias en Perfil */
+
+		.table-selector {
+			width: 45%;
+			background-color: rgb(41,41,41);
+			margin: 40px auto;
+		}
+		
+		.table-selector ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+		
+		.table-selector ul li {
+			display: inline-block;
+			font-family: Montserrat;
+			font-size: 13px;
+			line-height: 35px;
+			border-bottom: 2px solid transparent; 
+			color: rgb(240,240,240);
+			padding: 0;
+			margin: 0;
+			width: 49%;
+			text-transform: uppercase;
+			text-align: center;
+			position: relative;
+			cursor: pointer;
+		}
+		
+		.table-selector ul li:first-child:after{
+			content: "|";
+			color: black;
+			position: absolute;
+			left: 100%;
+		}
+		
+		.table-selector ul li.actual {
+			color: white;
+			border-color: rgb(73,45,145);
+			font-weight: bold;
+		}
+
+		table.myMovies {
+			width: 80%;
+			margin: 20px auto;
+			border-collapse: collapse;
+			border: 0;
+			table-layout: fixed;
+			margin-bottom: 60px;
+		}
+		
+		.myMovies tr:not(.headers){
+			border-bottom: 1px solid rgb(230,230,230);
+			padding-top: 6px;
+			padding-bottom: 6px;
+		}
+		
+		.myMovies th {
+			color: white;
+			background-color: rgb(73,45,145);
+			text-align: center;
+			text-transform: uppercase;
+			font-family: Montserrat;
+			font-size: 13px;
+			padding-top: 10px;
+			padding-bottom: 10px;
+		}
+		
+		.myMovies th:not(.empty){
+			width: 22%;
+		}
+		
+		.myMovies td img {
+			margin-top: 6px;
+			margin-bottom: 6px;
+			max-width: 100%;
+		}
+		
+		.myMovies td {
+			font-family: Lato;
+			font-size: 13px;
+			color: rgb(240,240,240);
+			text-align: center;
+		}
+	
+	/* 10.2. Detalle Película */
+	
+		.pelicula-extended {
+			position: relative;
+			width: 100%;
+			padding-top: 80px;
+			margin-top: 45px;
+		}
+		
+		.pelicula-extended .back-text{
+			text-decoration: none;
+			position: absolute;
+			top: 0;
+			left: 0;
+			font-family: Lato;
+			font-size: 13px;
+			color: white;
+			text-transform: uppercase;
+		}
+		
+		.pelicula-extended .back-text img{
+			vertical-align: -5px;
+			margin-right: 10px;
+			height: 20px;
+		}
+		
+		.pelicula-extended .titulo-pelicula {
+			font-family: Montserrat;
+			font-weight: bold;
+			color: white;
+			font-size: 35px;
+			margin-bottom: 15px;
+		}
+		
+		.pelicula-extended .imagen {
+			background-position: center center;
+			background-size: contain;
+			background-repeat: no-repeat;
+			width: 548px;
+			height: 310px;
+			float: left;
+			position: relative;
+		}
+		.pelicula-extended.short .imagen {
+			background-position: center center;
+			background-size: contain;
+			background-repeat: no-repeat;
+			width: 233px;
+			height: 325px;
+			float: left;
+			position: relative;
+		}
+		
+		.pelicula-extended .imagen .overlay {
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0,0,0,0.5);
+			position: absolute;
+		}
+		
+		.pelicula-extended .imagen .play-btn {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			background-position: center center;
+			background-repeat: no-repeat;
+			background-image: url("../img/botones/btn-play.png");
+			background-size: 97px 97px;
+			cursor: pointer;
+		}
+		
+		.pelicula-extended .info-pelicula {
+			float: right;
+			width: 410px;
+		}
+		
+		.pelicula-extended.short .info-pelicula {
+			width: 730px;
+			position: relative;
+		}
+		
+		.pelicula-extended .info-pelicula .valoracion {
+			font-size: 14px;
+			margin-bottom: 20px;
+		}
+		
+		.pelicula-extended .info-pelicula .valoracion .label {
+			text-transform: uppercase;
+			margin-bottom: 15px;
+		}
+		
+		.star {
+			display: inline-block;
+			width: 22px;
+			height: 24px;
+			margin-right: 5px; 
+			background-size: contain;
+			background-repeat: no-repeat;
+			vertical-align: middle;
+		}
+		
+		.star.input {
+			cursor: pointer;
+		}
+		
+		.star.baby {
+			width: 18px;
+			height: 19px;
+			margin-right: 3px; 
+		}	
+		
+		.star.empty {
+			background-image: url("../img/movie_layout/star-empty.png");
+		}
+		.star.full {
+			background-image: url("../img/movie_layout/star-full.png");
+		}
+		
+		.star.last {
+			margin-right: 15px;
+		}
+		
+		.pelicula-extended .info-pelicula .btn-trailer {
+			background-color: rgb(30,30,30);
+			border: 1px solid white;
+			color: white;
+			font-family: Montserrat;
+			font-weight: bold;
+			font-size: 13px;
+			text-align: center;
+			line-height: 23px;
+			text-transform: uppercase;
+			padding-top: 10px;
+			padding-bottom: 10px;
+			width: 150px;
+			cursor: pointer;
+			margin-bottom: 20px;
+		}
+		
+		.pelicula-extended .info-pelicula .btn-trailer img {
+			vertical-align: -4px;
+			max-height: 17px;
+			margin-right: 6px;
+		}
+		
+		.pelicula-extended .info-pelicula .descripcion-pelicula {
+			width: 100%;
+			text-align: left;
+			font-size: 13px;
+			margin-bottom: 29px;
+		}
+		
+		.pelicula-extended.short .info-pelicula .descripcion-pelicula {
+			width: 50%;
+		}
+		
+		.pelicula-extended .info-pelicula .last-info {
+			width: 100%;
+			text-align: left;
+			font-size: 13px;
+			position: relative;
+		}
+		
+		.pelicula-extended .info-pelicula .last-info .share-fb {
+			position: absolute;
+			bottom: 43px;
+			right: 0;
+			width: 170px;
+			cursor: pointer;
+		}
+		
+		.pelicula-extended.short .info-pelicula .last-info .share-fb
+		{
+			right: 55px;
+		}
+		
+		.pelicula-extended .info-pelicula .last-info .share-tw {
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			width: 170px;
+			cursor: pointer;
+		}
+		
+		.pelicula-extended.short .info-pelicula .last-info .share-tw
+		{
+			right: 55px;
+		}
+		
+		.pelicula-extended .info-pelicula .last-info .tiempoRestante {
+			width: 195px;
+			background-color: rgb(30,30,30);
+			padding-top: 10px;
+			padding-bottom: 10px;
+			text-align: left;
+			padding-left: 19px;
+			position: relative;
+			margin-top: 20px;
+		}
+		
+		.pelicula-extended .info-pelicula .last-info .tiempoRestante img {
+			height: 30px;
+		}
+		
+		.pelicula-extended .info-pelicula .last-info .tiempoRestante .label {
+			position: absolute;
+			right: 19px;
+			top: 10px;
+			font-size: 12px;
+			text-transform: uppercase;
+			text-align: center;
+			width: 120px;
+		}
+		
+		.pelicula-extended .info-pelicula .last-info .tiempoRestante .tiempo {
+			position: absolute;
+			right: 19px;
+			bottom: 10px;
+			font-family: Montserrat;
+			font-weight: bold;
+			font-size: 16px;
+			text-align: center;
+			width: 120px;
+		}
+		
+		.pelicula-extended.short .info-pelicula .acciones {
+			position: absolute;
+			right: 0;
+			top: 0;
+			width: 280px;
+		}
+		
+		.pelicula-extended.short .info-pelicula .acciones .underlined {
+			margin-top: 0;
+			padding-top: 0;
+		}
+		
+		.pelicula-extended.short .info-pelicula .acciones img {
+			display: block;
+			margin-bottom: 10px;
+			max-width: 170px;
+			cursor: pointer;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		
+		.pelicula-extended.short .info-pelicula .acciones .duda {
+			position: absolute;
+			right: 20px;
+			top: 112px;
+			width: 20px;
+			height: 20px;
+		}
+		
+		.ficha-tecnica {
+			width: 610px;
+			table-layout: fixed;
+			border-collapse: collapse;
+			border: 1px solid rgb(92,92,92);
+			float: left;
+			margin-bottom: 20px;
+		}
+		
+		.ficha-tecnica tr:not(:last-child) {
+			border-bottom:  1px solid rgb(92,92,92);
+		}
+		
+		.ficha-tecnica th {
+			background-color: rgb(41,41,41);
+			color: white;
+			text-transform: uppercase;
+			font-weight: bold;
+			width: 35%;
+			box-sizing: border-box;
+			padding-left: 10px;
+			text-align: left;
+			padding-top: 5px;
+			padding-bottom: 5px;
+			font-size: 13px;
+			border-right: 1px solid rgb(92,92,92);
+		}
+		
+		.ficha-tecnica td {
+			color: white;
+			width: 65%;
+			box-sizing: border-box;
+			text-align: left;
+			padding-bottom: 5px;
+			padding-top: 5px;
+			padding-left: 10px;
+			font-size: 13px;
+		}
+		
+		.galeria {
+			float: right;
+			width: 350px;
+		}
+		
+		.galeria .titulo {
+			width: 100%;
+			text-align: center;
+			color: white;
+			font-size: 18px;
+			margin-bottom: 14px;
+			text-transform: uppercase;
+		}
+	
+	/* 10.3 Comentarios */
+	
+		ul.comentarios {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+			width: 100%;
+			padding-left: 29px;
+			box-sizing: border-box; 
+			margin-bottom: 20px;
+		}
+		
+		ul.comentarios li {
+			width: 100%;
+			margin-bottom: 45px;
+		}
+		
+		ul.comentarios li .foto {
+			width: 75px;
+			float: left;
+			padding-top: 55px;
+		}
+		
+		ul.comentarios li .contenido {
+			width: 700px;
+			float: right;
+			box-sizing: border-box;
+			position: relative;
+		}
+		
+		ul.comentarios li .contenido.write {
+			border: 1px solid rgb(165,165,165);
+			padding-top: 3px;
+			padding-bottom: 3px;
+			padding-left: 10px;
+			padding-right: 10px;
+		}
+		
+		ul.comentarios li .contenido .titulo {
+			font-weight: bold;
+			font-size: 14px;
+		}
+		ul.comentarios li .contenido .subtitulo {
+			font-weight: 400;
+			font-size: 14px;
+			margin-bottom: 15px;
+		}
+		
+		ul.comentarios li .contenido .comentario {
+			width: 100%;
+			font-size: 14px;
+			text-align: left;
+		}
+		
+		ul.comentarios li .contenido .valoracion {
+			position: absolute;
+			right: 0;
+			top: 0;
+			line-height: 30px;
+			text-transform: uppercase;
+		}
+		
+		ul.comentarios li .contenido .valoracion .stars {
+			margin-left: 20px;
+			font-size: 0;
+			display: inline-block;
+			vertical-align: middle;
+		}
+		
+		ul.comentarios li .contenido.write .titulo input {
+			width: calc(100% - 240px);
+			background-color: transparent;
+			border: none;
+			color: rgb(165,165,165);
+			font-family: Lato;
+			font-size: 14px;
+			margin-bottom: 8px;
+		}
+		
+		ul.comentarios li .contenido.write .comentario textarea {
+			width: 100%;
+			background-color: transparent;
+			border: none;
+			color: rgb(165,165,165);
+			font-family: Lato;
+			font-size: 14px;
+			min-height: 75px;
+			max-width: 100%;
+		}
+		
+		ul.comentarios li .contenido.write .subtitulo {
+			color: rgb(165,165,165);
+		}
+		
+		ul.comentarios li .contenido.write .titulo input::-webkit-input-placeholder,
+		ul.comentarios li .contenido.write .comentario textarea::-webkit-input-placeholder{
+			font-style: italic;
+			color: rgb(165,165,165);
+		}
+
+		ul.comentarios li .contenido.write .titulo input:-moz-placeholder,
+		ul.comentarios li .contenido.write .comentario textarea:-moz-placeholder
+		{ /* Firefox 18- */
+			font-style: italic;  
+			color: rgb(165,165,165);
+		}
+
+		ul.comentarios li .contenido.write .titulo input::-moz-placeholder,
+		ul.comentarios li .contenido.write .comentario textarea::-moz-placeholder {  /* Firefox 19+ */
+			font-style: italic;
+			color: rgb(165,165,165);
+		}
+
+		ul.comentarios li .contenido.write .titulo input:-ms-input-placeholder,
+		ul.comentarios li .contenido.write .comentario textarea:-ms-input-placeholder
+		{  
+			font-style: italic;
+			color: rgb(165,165,165);
+		}
+		ul.comentarios li .contenido.write textarea, ul.comentarios li .contenido.write input { outline: none; }
+		
+	/* 10.4 Resultados y filtro */
+	
+		.filtro {
+			width: 500px;
+			padding-left: 126px;
+			margin-bottom: 40px;
+		}
+		
+		.filtro .select {
+			width: 200px;
+			margin-left: 15px;
+		}
+	
+		.movie-row {
+			width: 100%;
+			margin-bottom: 20px;
+		}
+	
+		.movie-piece {
+			width: 233px;
+			height: 179px;
+			background-size: cover;
+			position: relative;
+			display: inline-block;
+			vertical-align: top;
+			float: left;
+			margin-right: 25px;
+			cursor: pointer;
+		}
+		
+		.movie-piece:nth-child(3n+0){
+			margin-right: 0;
+		}
+		
+		.movie-piece .titulo {
+			position: absolute;
+			width: 138px;
+			bottom: 34px;
+			color: white;
+			font-family: Lato;
+			font-weight: bold;
+			left: 5px;
+			height: 22px;
+			font-size: 12px;
+			line-height: 22px;
+			padding-left: 4px;
+			background-color: rgb(72, 47, 151);
+		}
+		
+		.movie-piece .info {
+			position: absolute;
+			padding-left: 4px;
+			padding-right: 4px;
+			width: 218px;
+			bottom: 19px;
+			height: 15px;
+			font-size: 12px;
+			left: 5px;
+			background-color: rgba(0,0,0,0.6);
+			color: white;
+			font-family: Lato;
+			line-height: 15px;
+		}
+		
+		.movie-piece .info .valor{
+			float: right;
+			font-weight: bold;
+			font-family: Montserrat;
+			line-height: 15px;
+		}
+		
+		.movie-piece .rating {
+			position: absolute;
+			width: 100px;
+			right: 7px;
+			bottom: 34px;
+			text-align: right;
+			padding-top: 4px;
+			height: 22px;
+			font-size: 0;
+		}
+		
+		.movie-piece .rating img{
+			vertical-align: top;
+			display: inline-block;
+		}
+
+/* 11. Quienes somos */
+
+	.integrante {
+		float: left;
+		width: 24%;
+		text-align: center;
+		color: rgb(218,218,218);
+		cursor: default;
+		transition: color 0.4s;
+		margin-bottom: 18px;
+	}
+	
+	.integrante:hover {
+		color: white;
+	}
+	
+	.integrante img {
+		max-width: 100%;
+	}
+	
+	.integrante .nombre {
+		font-family: Montserrat;
+		font-size: 18px;
+		text-transform: uppercase;
+		font-weight: bold;
+		margin-bottom: 6px;
+	}
+	
+	.integrante .cargo {
+		font-style: italic;
+		font-family: Lato;
+		font-size: 13px;
+	}
+	
+	.integrante hr {
+		width: 20%;
+		margin: 6px auto;
+		border-color: rgb(73,45,145);
+		border-top: 0;
+	}
+	
+	.integrante .correo {
+		font-family: Lato;
+		font-size: 14px;
+	}
+	
+/* 12. Contacto */
+
+	.contacto-shortcuts {
+		width: 90%; 
+		text-align: center;
+		margin: 30px auto;
+	}
+	
+	.contacto-shortcuts .shortcut {
+		display: inline-block;
+		margin: 0px 20px;
+	}
+	
+	.contacto-shortcuts .shortcut .label {
+		font-size: 13px;
+		font-style: italic;
+		margin-top: 10px;
+	}
+	
+	form#contacto {
+		width: 485px;
+		margin: 0px auto;
+	}
+	
+	form#contacto .awesome-lukea-input {
+		margin-bottom: 10px;
+	}

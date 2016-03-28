@@ -1,0 +1,20 @@
+<div class = 'popup' id = 'loginPopup'>
+    <%= image_tag 'logos/logo-lukea-header.png', class:"logo" %>
+	<div class = 'titulo'>iniciar sesión</div>
+	<div class = 'subtitulo'>Inicia sesión con tu correo electrónico</div>
+	<%= form_for(:user, as: :user, url: session_path(:user)) do |f| %>
+		<div class = 'awesome-lukea-input standalone'>
+			<%= f.email_field :email, autofocus: true %>
+		</div>
+		<div class = 'awesome-lukea-input standalone'>
+			<%= f.password_field :password, autocomplete: "off" %>
+		</div>
+		<button class = "btn btn-login-normal">Iniciar Sesión</button>
+		<div class = 'subtitulo'>O inicia sesión con una de tus redes sociales</div>
+		<%= image_tag 'botones/loginFb.png', class:"social-login" %>
+		<%= image_tag 'botones/loginGoogle.png', class:"social-login" %>
+	<% end %>
+	<div class = 'indicacion'><a href = '#'>¿Olvidaste tu contraseña?</a></div>
+	<div class = 'indicacion'>Recordarme en este dispositivo</div>
+	<div class = 'indicacion'>¿Eres nuevo? <a class = 'popup-btn' popup-target = 'registroPopup' href = '#'>Regístrate ahora</a></div>
+</div>

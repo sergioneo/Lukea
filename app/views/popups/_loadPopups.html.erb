@@ -1,0 +1,8 @@
+<% unless user_signed_in? %>
+    <%= render "popups/login" %>
+    <%= render "popups/registro" %>
+<% end %>
+
+<% if controller.controller_name == "registrations" %>
+    <%= render "popups/editarPerfil" %>
+<% end %>

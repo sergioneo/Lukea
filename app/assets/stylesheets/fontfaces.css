@@ -1,0 +1,63 @@
+@font-face {
+    font-family: Lato;
+    src: url("../fonts/Lato/Lato-Regular.ttf");
+	font-weight: 400;
+}
+
+@font-face {
+    font-family: Lato;
+    src: url("../fonts/Lato/Lato-Italic.ttf");
+	font-style: italic;
+	font-weight: 400;
+}
+
+@font-face {
+    font-family: Lato;
+    src: url("../fonts/Lato/Lato-Bold.ttf");
+	font-weight: bold;
+}
+
+@font-face {
+    font-family: Lato;
+    src: url("../fonts/Lato/Lato-BoldItalic.ttf");
+	font-weight: bold;
+	font-style: italic;
+}
+
+@font-face {
+    font-family: Lato;
+    src: url("../fonts/Lato/Lato-Hairline.ttf");
+	font-weight: 100;
+}
+
+@font-face {
+    font-family: Lato;
+    src: url("../fonts/Lato/Lato-HairlineItalic.ttf");
+	font-weight: 100;
+	font-style: italic;
+}
+
+@font-face {
+    font-family: Lato;
+    src: url("../fonts/Lato/Lato-Light.ttf");
+	font-weight: 300;
+}
+
+@font-face {
+    font-family: Lato;
+    src: url("../fonts/Lato/Lato-LightItalic.ttf");
+	font-weight: 300;
+	font-style: italic;
+}
+
+@font-face {
+    font-family: Montserrat;
+    src: url("../fonts/Montserrat/Montserrat-Bold.ttf");
+	font-weight: bold;
+}
+
+@font-face {
+    font-family: Montserrat;
+    src: url("../fonts/Montserrat/Montserrat-Regular.ttf");
+	font-weight: 400;
+}
